@@ -1,6 +1,6 @@
-# nikita.kit / css
+# nikita.css
 
-If you want to start a new project from scratch, try the [nikita kickstarter](https://github.com/nikita-kit/nikita-kickstarter).
+If you want to start a new project from scratch, try the [nikita.kickstarter](https://github.com/nikita-kit/nikita-kickstarter).
 
 Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-kickstarter.png)](https://github.com/nikita-kit/nikita-kickstarter/releases)
 
@@ -301,4 +301,4 @@ If you're asking yourself »Why not …?« have a look at my [WHYNOT.md](https:/
 
 ## License
 
-nikita.kit is licensed under [CC0](http://creativecommons.org/publicdomain/zero/1.0/): Public Domain Dedication.
+nikita.css is licensed under [CC0](http://creativecommons.org/publicdomain/zero/1.0/): Public Domain Dedication.
