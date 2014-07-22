@@ -1,8 +1,10 @@
 # nikita.css
 
-If you want to start a new project from scratch, try [nikita.kickstarter](https://github.com/nikita-kit/nikita-kickstarter).
+This is our methodology how to write efficient and scalable (S)CSS for big websites.
 
 Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-css.png)](https://github.com/nikita-kit/nikita-css/releases)
+
+If you want to start a new project from scratch, try [nikita.kickstarter](https://github.com/nikita-kit/nikita-kickstarter).
 
 
 ## HTML Rules
