@@ -2,7 +2,7 @@
 
 If you want to start a new project from scratch, try the [nikita.kickstarter](https://github.com/nikita-kit/nikita-kickstarter).
 
-Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-kickstarter.png)](https://github.com/nikita-kit/nikita-kickstarter/releases)
+Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-css.png)](https://github.com/nikita-kit/nikita-css/releases)
 
 ## HTML Rules
 
