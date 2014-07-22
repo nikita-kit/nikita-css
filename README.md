@@ -297,7 +297,7 @@ __Maximum Nesting: three levels deep__
 
 ## Questions?
 
-If you're asking yourself »Why not …?« have a look at my [WHYNOT.md](https://github.com/nikita-kit/nikita-css/blob/master/WHY-NOT.md) file. There I might answer some common questions. :)
+If you're asking yourself »Why not …?« have a look at my [WHY-NOT.md](https://github.com/nikita-kit/nikita-css/blob/master/WHY-NOT.md) file. There I might answer some common questions. :)
 
 ## License
 
