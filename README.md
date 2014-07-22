@@ -1,8 +1,9 @@
 # nikita.css
 
-If you want to start a new project from scratch, try the [nikita.kickstarter](https://github.com/nikita-kit/nikita-kickstarter).
+If you want to start a new project from scratch, try [nikita.kickstarter](https://github.com/nikita-kit/nikita-kickstarter).
 
 Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-kickstarter.png)](https://github.com/nikita-kit/nikita-kickstarter/releases)
+
 
 ## HTML Rules
 
@@ -10,16 +11,16 @@ __HTML5__ is preferred for all HTML documents, so I'm using:
 
 __HTML5 Elements__
 
-sectioning: `<header>, <footer>, <nav>, <aside>, <article>, <section>` …
-grouping: `<main>, <figure>, <figcaption>` …
-text-level semantic: `<mark>, <time>` …
+sectioning: `<header>, <footer>, <nav>, <aside>, <article>, <section>` …  
+grouping: `<main>, <figure>, <figcaption>` …  
+text-level semantic: `<mark>, <time>` …  
 multimedia: `<video>, <audio>` …
 
 __HTML5 Forms__
 
-types: `date, email, number, range, search, tel, url` …
-elements: `datalist, progress, output` …
-attributes: `pattern, placeholder, required` …
+types: `date, email, number, range, search, tel, url` …  
+elements: `datalist, progress, output` …  
+attributes: `pattern, placeholder, required` …  
 
 To achieve a constant form-behaviour across all A-graded browsers, I can recommend [Webshims Lib](https://github.com/aFarkas/webshim), a modular capability-based polyfill-loading library.
 
@@ -295,9 +296,11 @@ __Maximum Nesting: three levels deep__
 }
 ```
 
+
 ## Questions?
 
-If you're asking yourself »Why not …?« have a look at my [WHY-NOT.md](https://github.com/nikita-kit/nikita-css/blob/master/WHY-NOT.md) file. There I might answer some common questions. :)
+If you're asking yourself _»Why not …?«_ have a look at my [WHY-NOT.md](https://github.com/nikita-kit/nikita-css/blob/master/WHY-NOT.md) file. There I might answer some common questions. :)
+
 
 ## License
 
