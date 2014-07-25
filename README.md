@@ -10,9 +10,9 @@ If you're interested in HTML patterns, code snippets and best practices, try [ni
 
 ## CSS Rules
 
-I'm using some variation of BEM+SMACSS+optionatedexperienceofcssdevelopmentyears:
+We're using some variation of BEM+SMACSS+optionatedexperienceofcssdevelopmentyears:
 
-My site exists of basic __blocks__. Blocks are independent parts of the site (e.g. menu, metanav, login form, sidebar, user detail page). Like explained at [yandex's BEM](http://img-fotki.yandex.ru/get/5008/221798411.0/0_babce_7deef28f_XXL.png).
+Our site exists of basic __blocks__. Blocks are independent parts of the site (e.g. menu, metanav, login form, sidebar, user detail page). Like explained at [yandex's BEM](http://img-fotki.yandex.ru/get/5008/221798411.0/0_babce_7deef28f_XXL.png).
 The blocks may contain other blocks.
 
 The smallest entities of a block are called __elements__. For instance the block 'menu' contains multiple items, a login block may contain a username element, password element and a submit button element. Like explained at [yandex's BEM](http://img-fotki.yandex.ru/get/6726/221798411.0/0_babd1_f14000fa_XL.png).
@@ -55,7 +55,7 @@ File `_menu.scss` in `source/sass/blocks` directory.
 
 ### Class-Naming
 
-Because you want to know if the block is for page layout or for a single component, I separate page layout blocks from component blocks.
+Because you want to know if the block is for page layout or for a single component, we separate page layout blocks from component blocks.
 
 Page Layout Blocks:
 
@@ -74,6 +74,62 @@ Component Blocks:
 - b-teaser-text
 - b-teaser-video
 - …
+
+
+## CSS Coding Style
+
+(This list is not intended to be exhaustive.)
+
+- Use lowercase for class names.
+- Be consistant with indentation – I'm using tabs instead of spaces.
+- Be consistent in declaration order, cluster related properties (Positioning, Box-Model, Text & Color). I'm no fan of an alphabetical order.
+- Be consistant with quotes – I'm using double quotes `""`.
+- Quote attribute values in selectors, e.g. `input[type="checkbox"]`.
+- One selector per line, one rule per line.
+- Put spaces after `:` in property declarations.
+- Put spaces before `{` in rule declarations.
+- Put a `;` at the end of the last declaration in a declaration block.
+- Include a space after each comma in comma-separated property or function values, e.g. `rgba(0, 0, 0, 0)`.
+- Separate each ruleset by a blank line.
+- Document styles with [KSS](https://github.com/kneath/kss).
+
+
+## CSS Coding Guidelines
+
+(This list is not intended to be exhaustive.)
+
+- Avoid element selectors.
+  - __bad:__ .foo div, .foo span, .foo ul
+  - ___good:___ .foo .section, .foo .title, .foo .linklist
+- Avoid IDs where possible (exeption: e.g. in forms -> for-attribute).
+  - __bad:__ #sidebar
+  - __good:__ .sidebar
+- Avoid qualifying class names with type selectors.
+  - __bad:__ ul.linklist, div.example, a.back
+  - __good:__ .linklist, .example, .back
+- Avoid the descendant selector. Target directly if possible.
+  - __bad:__ .foo .bar .baz
+  - __good:__ .baz-header
+- Use shorthand properties where possible.
+  - __bad:__ padding-top: 0; padding-right: 1em; padding-bottom: 2em; padding-left: 1em;
+  - __good:__ padding: 0 1em 2em;
+- Omit unit specification after “0” values.
+  - __bad:__ margin: 0px;
+  - __good:__ margin: 0;
+- Use hexadecimal color codes #000 unless using rgba.
+  - __bad:__ color: orange;
+  - __good:__ color: #ffa500;
+- Use 3 character hexadecimal notation where possible.
+  - __bad:__ color: #ff0099;
+  - __good:__ color: #f09;
+- Use number keywords (100–900) for font-weight.
+  - __bad:__ font-weight: normal;
+  - __good:__ font-weight: 400;
+- Separate words in class names by a hyphen.
+  - __bad:__ .user_avatar, .userAvatar, .useravatar
+  - __good:__ .user-avatar
+- Dont't use !important, it's ok to use it on helper classes though.
+- Dont't use conditional stylesheets, use the html-class (e.g. .lt-ie9) instead to style directly in your block.
 
 
 ## SASS structure
@@ -141,62 +197,6 @@ Some explanation:
 - __styles.scss__ – main stylesheet, includes all partials
 - __universal.scss__ – stylesheet for old browsers, based on [universal-ie6-css](https://code.google.com/p/universal-ie6-css/)
 - __variables/__ – put your variables in here, e.g. `color`, `typography` etc.
-
-
-## CSS Coding Style
-
-(This list is not intended to be exhaustive.)
-
-- Use lowercase for class names.
-- Be consistant with indentation – I'm using tabs instead of spaces.
-- Be consistent in declaration order, cluster related properties (Positioning, Box-Model, Text & Color). I'm no fan of an alphabetical order.
-- Be consistant with quotes – I'm using double quotes `""`.
-- Quote attribute values in selectors, e.g. `input[type="checkbox"]`.
-- One selector per line, one rule per line.
-- Put spaces after `:` in property declarations.
-- Put spaces before `{` in rule declarations.
-- Put a `;` at the end of the last declaration in a declaration block.
-- Include a space after each comma in comma-separated property or function values, e.g. `rgba(0, 0, 0, 0)`.
-- Separate each ruleset by a blank line.
-- Document styles with [KSS](https://github.com/kneath/kss).
-
-
-## CSS Coding Guidelines
-
-(This list is not intended to be exhaustive.)
-
-- Avoid element selectors.
-  - __bad:__ .foo div, .foo span, .foo ul
-  - ___good:___ .foo .section, .foo .title, .foo .linklist
-- Avoid IDs where possible (exeption: e.g. in forms -> for-attribute).
-  - __bad:__ #sidebar
-  - __good:__ .sidebar
-- Avoid qualifying class names with type selectors.
-  - __bad:__ ul.linklist, div.example, a.back
-  - __good:__ .linklist, .example, .back
-- Avoid the descendant selector. Target directly if possible.
-  - __bad:__ .foo .bar .baz
-  - __good:__ .baz-header
-- Use shorthand properties where possible.
-  - __bad:__ padding-top: 0; padding-right: 1em; padding-bottom: 2em; padding-left: 1em;
-  - __good:__ padding: 0 1em 2em;
-- Omit unit specification after “0” values.
-  - __bad:__ margin: 0px;
-  - __good:__ margin: 0;
-- Use hexadecimal color codes #000 unless using rgba.
-  - __bad:__ color: orange;
-  - __good:__ color: #ffa500;
-- Use 3 character hexadecimal notation where possible.
-  - __bad:__ color: #ff0099;
-  - __good:__ color: #f09;
-- Use number keywords (100–900) for font-weight.
-  - __bad:__ font-weight: normal;
-  - __good:__ font-weight: 400;
-- Separate words in class names by a hyphen.
-  - __bad:__ .user_avatar, .userAvatar, .useravatar
-  - __good:__ .user-avatar
-- Dont't use !important, it's ok to use it on helper classes though.
-- Dont't use conditional stylesheets, use the html-class (e.g. .lt-ie9) instead to style directly in your block.
 
 
 ## SASS Coding Guidelines

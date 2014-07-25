@@ -1,0 +1,67 @@
+// 
+// centering mixin
+// ---------------
+// 
+// This mixin is used for horizontally and/or vertically centering elements.
+// 
+// Sample input:
+// .element-1 {
+//     @include centering(horiz);
+// }
+//
+// .element-2 {
+//     @include centering(vert);
+// }
+//
+// .element-3 {
+//     @include centering(horiz-and-vert);
+// }
+//
+// Sample output:
+// .element-1 {
+//     position: absolute;
+//     top: 50%;
+//     transform: translateY(-50%);
+// }
+// 
+// .element-2 {
+//     position: absolute;
+//     left: 50%;
+//     transform: translateX(-50%);
+// }
+// 
+// .element-3 {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+// }
+// 
+
+@mixin centering($scope) {
+	& {
+		position: absolute;
+	}
+	
+	@if $scope == "horiz" {
+		& {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+	
+	@if $scope == "vert" {
+		& {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+	
+	@if $scope == "horiz-and-vert" {
+		& {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
