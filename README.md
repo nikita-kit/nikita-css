@@ -20,18 +20,18 @@ The smallest entities of a block are called __elements__. For instance the block
 Blocks and elements may be modified with __modifiers__. For instance the selected menu item is a modified version of the menu item.
 
 - Blocks
-  - are prefixed with _b-_
-  - __good:__ b-menu, b-sidebar, b-sitemap, b-user
-  - __bad:__ menu, sidebar, sitemap, user
+	- are prefixed with `b-`
+	- __good:__ b-menu, b-sidebar, b-sitemap, b-user
+	- __bad:__ menu, sidebar, sitemap, user
 - Elements
-  - have _no prefix_ and can only be defined in block scope
-  - are not prefixed with their block (choose a longer name if it's not expressive enough)
-  - __good:__ item, title, user-avatar (instead of user or avatar)
-  - __bad:__ user-user-avatar, menu-item-a
+	- have _no prefix_ and can only be defined in block scope
+	- are not prefixed with their block (choose a longer name if it's not expressive enough)
+	- __good:__ item, title, user-avatar (instead of user or avatar)
+	- __bad:__ user-user-avatar, menu-item-a
 - Modifier
-  - are prefixed with _is-_, and have to be defined in block or element scope
-  - __good:__ is-selected, is-active, is-approved
-  - __bad:__ selected, active, approved
+	- are prefixed with `is-`, and have to be defined in block or element scope
+	- __good:__ is-selected, is-active, is-approved
+	- __bad:__ selected, active, approved
 
 
 ### Example
@@ -98,38 +98,327 @@ Component Blocks:
 
 (This list is not intended to be exhaustive.)
 
-- Avoid element selectors.
-  - __bad:__ .foo div, .foo span, .foo ul
-  - ___good:___ .foo .section, .foo .title, .foo .linklist
-- Avoid IDs where possible (exeption: e.g. in forms -> for-attribute).
-  - __bad:__ #sidebar
-  - __good:__ .sidebar
-- Avoid qualifying class names with type selectors.
-  - __bad:__ ul.linklist, div.example, a.back
-  - __good:__ .linklist, .example, .back
-- Avoid the descendant selector. Target directly if possible.
-  - __bad:__ .foo .bar .baz
-  - __good:__ .baz-header
-- Use shorthand properties where possible.
-  - __bad:__ padding-top: 0; padding-right: 1em; padding-bottom: 2em; padding-left: 1em;
-  - __good:__ padding: 0 1em 2em;
-- Omit unit specification after “0” values.
-  - __bad:__ margin: 0px;
-  - __good:__ margin: 0;
-- Use hexadecimal color codes #000 unless using rgba.
-  - __bad:__ color: orange;
-  - __good:__ color: #ffa500;
-- Use 3 character hexadecimal notation where possible.
-  - __bad:__ color: #ff0099;
-  - __good:__ color: #f09;
-- Use number keywords (100–900) for font-weight.
-  - __bad:__ font-weight: normal;
-  - __good:__ font-weight: 400;
-- Separate words in class names by a hyphen.
-  - __bad:__ .user_avatar, .userAvatar, .useravatar
-  - __good:__ .user-avatar
-- Dont't use !important, it's ok to use it on helper classes though.
-- Dont't use conditional stylesheets, use the html-class (e.g. .lt-ie9) instead to style directly in your block.
+
+### Avoid dangerous selectors
+
+If a selector is too generic, it's dangerous. In 99% of cases you have to overwrite this rule somewhere. Be more specific. Try using a class instead. (Exception: CSS-Resetstyles)
+
+__bad__
+
+```
+header { … }
+h2 { … }
+ul { … }
+```
+
+__good__
+
+```
+.header { … }
+.subtitle { … }
+.linklist { … }
+```
+
+
+### Avoid element selectors
+
+Element selectors are expensive. Like the rule above, be more specific. Try using a class instead. Furthermore elements like `<div />` and `<span />` should always have a class-attribute in your markup.
+
+__bad__
+
+```
+.foo div { … }
+.foo span { … }
+.foo ul { … }
+```
+
+__good__
+
+```
+.foo .section { … }
+.foo .title { … }
+.foo .linklist { … }
+```
+
+
+### Avoid IDs where possible
+
+IDs should never be used in CSS. Use IDs in HTML for fragment identifiers and maybee JS hooks but never in CSS because of their heightened specificity and because they can never be used more than once in a page.
+
+Though you should use IDs in forms to connect `<input />` and `<label />` with the `for`-attribute.
+
+__bad__
+
+```
+#sidebar
+```
+
+__good__
+
+```
+.sidebar
+```
+
+
+### Avoid qualifying class names with element selectors
+
+It's counterproductive because you unnecessary heighten the specifity.
+
+__bad__
+
+```
+ul.linklist { … }
+div.example { … }
+a.back { … }
+```
+
+__good__
+
+```
+.linklist { … }
+.example { … }
+.back { … }
+```
+
+
+### Avoid the descendant selector
+
+The descendant selector is the most expensive selector in CSS. You should target directly if possible.
+
+__bad__
+
+```
+html body .linklist li a { … }
+```
+
+__good__
+
+```
+.linklist-link { … }
+```
+
+
+### Avoid deep nesting
+
+Following to the rule above you should also try to nest your selectors maximum 3 levels deep.
+
+__bad__
+
+```
+.navlist li a span:before { … }
+```
+
+__good__
+
+```
+.navlist .info:before { … }
+```
+
+
+### Avoid using the same selctor for styling and JS
+
+Separation of concerns
+
+__bad__
+
+```
+.dialog-opener { … }
+```
+
+```
+$('.dialog-opener')…
+```
+
+__good__
+
+```
+.dialog-opener { … }
+```
+
+prefixed with `js-`
+
+```
+$('.js-dialog-opener')…
+```
+
+or use data-attributes:
+
+```
+$('[data-dialog-opener]')…
+```
+
+
+### Avoid using native language
+
+The English language has proven itself among coders as the standard.
+
+__bad__
+
+```
+.share-buttons .teilen a {
+	background: url("../img/icons/facebook-teilen.png") no-repeat 0 0;
+}
+```
+
+__good__
+
+```
+.share-buttons .facebook-share a {
+	background: url("../img/icons/facebook-share.png") no-repeat 0 0;
+}
+```
+
+
+### Use shorthand properties where possible
+
+It's shorter and easier to read.
+
+__bad__
+
+```
+.box {
+	padding-top: 0;
+	padding-right: 10px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+}
+```
+
+__good__
+
+```
+.box {
+	padding: 0 10px 20px;
+}
+```
+
+
+### Omit unit specification after “0” values
+
+Zero is zero. :)
+
+__bad__
+
+```
+.box {
+	margin: 0px;
+}
+```
+
+__good__
+
+```
+.box {
+	margin: 0;
+}
+```
+
+
+### Use hexadecimal color codes #000 unless using rgba or hsl
+
+In most cases the hex code is shorter than the color names, so you could save some bits.
+
+__bad__
+
+```
+.box {
+	color: orange;
+}
+```
+
+__good__
+
+```
+.box {
+	color: #ffa500;
+}
+```
+
+
+### Use 3 character hexadecimal notation where possible
+
+Like above, it's shorter and saves some bits.
+
+__bad__
+
+```
+.box {
+	color: #ff009;
+}
+```
+
+__good__
+
+```
+.box {
+	color: #f09;
+}
+```
+
+
+### Use number keywords 100–900 for font-weight
+
+It's the typographic standard to use number keywords. Like above it's also shorter and saves some bits.
+
+__bad__
+
+```
+.box {
+	font-weight: normal;
+}
+```
+
+__good__
+
+```
+.box {
+	font-weight: 400;
+}
+```
+
+
+### Separate words in class names by a hyphen
+
+It's easier to read and to select the fragments by using `shift + alt + left/right-arrow`.
+
+__bad__
+
+```
+.user_avatar { … }
+.userAvatar { … }
+.useravatar { … }
+```
+
+__good__
+
+```
+.user-avatar { … }
+```
+
+
+### Don't use !important
+
+Self-explanatory I hope. :)
+It may be ok to use it on helper classes though.
+
+
+### Avoid using conditional stylesheets
+
+Better wrap your html-element in conditional comments and then use the html-class, e.g. `.lt-ie9` to style directly in your component-block.
+
+__bad__
+
+```
+<!--[if IE 9]><link href="ie9.css" rel="stylesheet" /><![endif]-->
+```
+
+__good__
+
+```
+<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9 ie8" lang="de"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10 ie9" lang="de"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="de"> <!--<![endif]-->
+```
 
 
 ## SASS structure
