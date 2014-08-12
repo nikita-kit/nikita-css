@@ -313,6 +313,14 @@ __good__
 }
 ```
 
+__exception, where you don't omit__
+
+```
+.box {
+	transform: rotate(0deg);
+}
+```
+
 
 ### Use hexadecimal color codes #000 unless using rgba or hsl
 
@@ -503,38 +511,39 @@ __List @extend first__
 }
 ```
 
+__List @include second__
+
+```
+.b-foo {
+	@extend %module;
+	@include centering(horiz);
+	…
+}
+```
+
 __List regular styles next__
 
 ```
 .b-foo {
 	@extend %module;
-	margin: 0 auto;
+	@include centering(horiz);
+	padding: 10px;
+	color: #000;
 	…
 }
 ```
 
-__List @include depending on the property you are referencing__
+__List nested selectors last (separated by a blank line)__
 
 ```
 .b-foo {
 	@extend %module;
-	margin: 0 auto;
-	@include rem(padding, 10px);
+	@include centering(horiz);
+	padding: 10px;
 	color: #000;
-}
-```
-
-__List nested selectors last__
-
-```
-.b-foo {
-	@extend %module;
-	margin: 0 auto;
-	@include rem(padding, 10px);
-	color: #000;
-
+	
 	> .bar {
-		padding: 0 10px 5px;
+		background-color: #f30;
 	}
 }
 ```
