@@ -8,7 +8,9 @@ If you want to start a new project from scratch, try [nikita.kickstarter](https:
 If you're interested in HTML patterns, code snippets and best practices, try [nikita.html](https://github.com/nikita-kit/nikita-html).
 
 
-## CSS Rules
+## Contents
+
+### CSS Rules
 
 We're using some variation of BEM+SMACSS+optionatedexperienceofcssdevelopmentyears:
 
@@ -34,7 +36,7 @@ Blocks and elements may be modified with __modifiers__. For instance the selecte
 	- __bad:__ selected, active, approved
 
 
-### Example
+#### Example
 
 File `_menu.scss` in `source/sass/blocks` directory.
 
@@ -53,7 +55,7 @@ File `_menu.scss` in `source/sass/blocks` directory.
 ```
 
 
-### Class-Naming
+#### Class-Naming
 
 Because you want to know if the block is for page layout or for a single component, we separate page layout blocks from component blocks.
 
@@ -76,7 +78,7 @@ Component Blocks:
 - …
 
 
-## CSS Coding Style
+### CSS Coding Style
 
 (This list is not intended to be exhaustive.)
 
@@ -94,12 +96,12 @@ Component Blocks:
 - Document styles with [KSS](https://github.com/kneath/kss).
 
 
-## CSS Coding Guidelines
+### CSS Coding Guidelines
 
 (This list is not intended to be exhaustive.)
 
 
-### Avoid dangerous selectors
+#### Avoid dangerous selectors
 
 If a selector is too generic, it's dangerous. In 99% of cases you have to overwrite this rule somewhere. Be more specific. Try using a class instead. (Exception: CSS-Resetstyles)
 
@@ -120,7 +122,7 @@ __good__
 ```
 
 
-### Avoid element selectors
+#### Avoid element selectors
 
 Element selectors are expensive. Like the rule above, be more specific. Try using a class instead. Furthermore elements like `<div />` and `<span />` should always have a class-attribute in your markup.
 
@@ -141,7 +143,7 @@ __good__
 ```
 
 
-### Avoid IDs where possible
+#### Avoid IDs where possible
 
 IDs should never be used in CSS. Use IDs in HTML for fragment identifiers and maybee JS hooks but never in CSS because of their heightened specificity and because they can never be used more than once in a page.
 
@@ -160,7 +162,7 @@ __good__
 ```
 
 
-### Avoid qualifying class names with element selectors
+#### Avoid qualifying class names with element selectors
 
 It's counterproductive because you unnecessary heighten the specifity.
 
@@ -181,7 +183,7 @@ __good__
 ```
 
 
-### Avoid the descendant selector
+#### Avoid the descendant selector
 
 The descendant selector is the most expensive selector in CSS. You should target directly if possible.
 
@@ -198,7 +200,7 @@ __good__
 ```
 
 
-### Avoid deep nesting
+#### Avoid deep nesting
 
 Following to the rule above you should also try to nest your selectors maximum 3 levels deep.
 
@@ -215,7 +217,7 @@ __good__
 ```
 
 
-### Avoid using the same selctor for styling and JS
+#### Avoid using the same selctor for styling and JS
 
 Separation of concerns
 
@@ -248,7 +250,7 @@ $('[data-dialog-opener]')…
 ```
 
 
-### Avoid using native language
+#### Avoid using native language
 
 The English language has proven itself among coders as the standard.
 
@@ -269,7 +271,7 @@ __good__
 ```
 
 
-### Use shorthand properties where possible
+#### Use shorthand properties where possible
 
 It's shorter and easier to read.
 
@@ -293,7 +295,7 @@ __good__
 ```
 
 
-### Omit unit specification after “0” values
+#### Omit unit specification after “0” values
 
 Zero is zero. :)
 
@@ -322,7 +324,7 @@ __exception, where you don't omit__
 ```
 
 
-### Use hexadecimal color codes #000 unless using rgba or hsl
+#### Use hexadecimal color codes #000 unless using rgba or hsl
 
 In most cases the hex code is shorter than the color names, so you could save some bits.
 
@@ -343,7 +345,7 @@ __good__
 ```
 
 
-### Use 3 character hexadecimal notation where possible
+#### Use 3 character hexadecimal notation where possible
 
 Like above, it's shorter and saves some bits.
 
@@ -364,7 +366,7 @@ __good__
 ```
 
 
-### Use number keywords 100–900 for font-weight
+#### Use number keywords 100–900 for font-weight
 
 It's the typographic standard to use number keywords. Like above it's also shorter and saves some bits.
 
@@ -385,7 +387,7 @@ __good__
 ```
 
 
-### Separate words in class names by a hyphen
+#### Separate words in class names by a hyphen
 
 It's easier to read and to select the fragments by using `shift + alt + left/right-arrow`.
 
@@ -404,13 +406,13 @@ __good__
 ```
 
 
-### Don't use !important
+#### Don't use !important
 
 Self-explanatory I hope. :)
 It may be ok to use it on helper classes though.
 
 
-### Avoid using conditional stylesheets
+#### Avoid using conditional stylesheets
 
 Better wrap your html-element in conditional comments and then use the html-class, e.g. `.lt-ie9` to style directly in your component-block.
 
@@ -429,7 +431,7 @@ __good__
 ```
 
 
-## SASS structure
+### SASS structure
 
 There are two main SCSS-files `styles.scss` and `universal.scss`.
 
@@ -496,7 +498,7 @@ Some explanation:
 - __variables/__ – put your variables in here, e.g. `color`, `typography` etc.
 
 
-## SASS Coding Guidelines
+### SASS Coding Guidelines
 
 (This list is not intended to be exhaustive.)
 
@@ -559,6 +561,16 @@ __Maximum Nesting: three levels deep__
 	}
 }
 ```
+
+
+### SASS Extends
+
+We provide some useful [Extends](https://github.com/nikita-kit/nikita-css/tree/master/extends) which can easily be copied/pasted into your project.
+
+
+### SASS Mixins
+
+Same with [Mixins](https://github.com/nikita-kit/nikita-css/tree/master/mixins). Help yourselves!
 
 
 ## Questions?
