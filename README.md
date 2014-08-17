@@ -78,6 +78,28 @@ Component Blocks:
 - …
 
 
+#### Commenting
+
+Start with a small description of the rule set, then number tiny details that are worth an explanation. The numbers are matching with the numbered comments at the end of the CSS rules, e.g. `/* 1 */`.
+
+```
+/**
+ * Purpose of the selector or the rule set
+ * 1. Hardware acceleration hack
+ * 2. position: sticky; on anything but top aligned elements is buggy in Chrome <37 and iOS 7+
+ */
+ 
+.box {
+	position: fixed;
+	transform: translate3d(0, 0, 0); /* 1 */
+	
+	.csspositionsticky & {
+		position: sticky; /* 2 */
+	}
+}
+```
+
+
 ### CSS Coding Style
 
 (This list is not intended to be exhaustive.)
@@ -504,22 +526,49 @@ Some explanation:
 
 I'm using SCSS-syntax because it's valid CSS and more expressive in my eyes.
 
-__List @extend first__
+__List media queries first__
 
 ```
 .b-foo {
-	@extend %module;
-	…
+	
+	// Media Queries
+	@include respond-to(desktop) {
+		padding: 10px;
+	}
+	
 }
 ```
 
-__List @include second__
+__List global styles beginning with @extend second (separated by a blank line)__
 
 ```
 .b-foo {
+	
+	// Media Queries
+	@include respond-to(desktop) {
+		padding: 10px;
+	}
+	
+	// Global Styles
+	@extend %module;
+	
+}
+```
+
+__List @include third__
+
+```
+.b-foo {
+	
+	// Media Queries
+	@include respond-to(desktop) {
+		padding: 10px;
+	}
+	
+	// Global Styles
 	@extend %module;
 	@include centering(horiz);
-	…
+	
 }
 ```
 
@@ -527,11 +576,40 @@ __List regular styles next__
 
 ```
 .b-foo {
+	
+	// Media Queries
+	@include respond-to(desktop) {
+		padding: 10px;
+	}
+	
+	// Global Styles
 	@extend %module;
 	@include centering(horiz);
-	padding: 10px;
 	color: #000;
-	…
+	
+}
+```
+
+
+__List pseudo-class/element nesting with & (separated by a blank line)__
+
+```
+.b-foo {
+	
+	// Media Queries
+	@include respond-to(desktop) {
+		padding: 10px;
+	}
+	
+	// Global Styles
+	@extend %module;
+	@include centering(horiz);
+	color: #000;
+	
+	&:after {
+		content: "";
+	}
+	
 }
 ```
 
@@ -539,14 +617,25 @@ __List nested selectors last (separated by a blank line)__
 
 ```
 .b-foo {
+	
+	// Media Queries
+	@include respond-to(desktop) {
+		padding: 10px;
+	}
+	
+	// Global Styles
 	@extend %module;
 	@include centering(horiz);
-	padding: 10px;
 	color: #000;
+	
+	&:after {
+		content: "";
+	}
 	
 	> .bar {
 		background-color: #f30;
 	}
+	
 }
 ```
 
