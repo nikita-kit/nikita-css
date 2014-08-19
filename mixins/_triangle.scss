@@ -1,0 +1,110 @@
+// 
+// triangle mixin
+// --------------
+// 
+// This mixin is used for generating arrow-like triangles.
+// 
+// Sample input:
+// .element {
+//     @include triangle(10px, #f90, top);
+// }
+//
+// Sample output:
+// .element:after {
+//     content: "";
+//     position: absolute;
+//     z-index: 1;
+//     width: 0;
+//     height: 0;
+//     pointer-events: none;
+// }
+// 
+// .element:after {
+//     bottom: 100%;
+//     left: 50%;
+//     margin-left: -10px;
+//     border-right: 10px solid rgba(255, 255, 255, 0);
+//     border-bottom: 10px solid #f90;
+//     border-left: 10px solid rgba(255, 255, 255, 0);
+// }
+// 
+// .ie8 .element:after {
+//     border-right-color: transparent;
+//     border-left-color: transparent;
+// }
+// 
+
+@mixin triangle($size, $color, $position) {
+	&:after {
+		content: "";
+		position: absolute;
+		z-index: 1;
+		width: 0;
+		height: 0;
+		pointer-events: none;
+	}
+	
+	@if $position == "top" {
+		&:after {
+			bottom: 100%;
+			left: 50%;
+			margin-left: (-$size);
+			border-right: $size solid rgba(255, 255, 255, 0);
+			border-bottom: $size solid $color;
+			border-left: $size solid rgba(255, 255, 255, 0);
+		}
+		
+		.ie8 &:after {
+			border-right-color: transparent;
+			border-left-color: transparent;
+		}
+	}
+	
+	@if $position == "right" {
+		&:after {
+			top: 50%;
+			left: 100%;
+			margin-top: (-$size);
+			border-top: $size solid rgba(255, 255, 255, 0);
+			border-bottom: $size solid rgba(255, 255, 255, 0);
+			border-left: $size solid $color;
+		}
+		
+		.ie8 &:after {
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+		}
+	}
+	
+	@if $position == "bottom" {
+		&:after {
+			top: 100%;
+			left: 50%;
+			margin-left: (-$size);
+			border-top: $size solid $color;
+			border-right: $size solid rgba(255, 255, 255, 0);
+			border-left: $size solid rgba(255, 255, 255, 0);
+		}
+		
+		.ie8 &:after {
+			border-right-color: transparent;
+			border-left-color: transparent;
+		}
+	}
+	
+	@if $position == "left" {
+		&:after {
+			top: 50%;
+			right: 100%;
+			margin-top: (-$size);
+			border-top: $size solid rgba(255, 255, 255, 0);
+			border-right: $size solid $color;
+			border-bottom: $size solid rgba(255, 255, 255, 0);
+		}
+		
+		.ie8 &:after {
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+		}
+	}
+}

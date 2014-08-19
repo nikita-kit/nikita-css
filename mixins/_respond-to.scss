@@ -1,0 +1,68 @@
+// 
+// respond-to mixin
+// ----------------
+// 
+// This mixin is used for managing your media queries.
+// 
+// Usage:
+//
+// Define your breakpoints in variables/_breakpoints.scss, e.g.
+// 
+// $respond-to-no-mediaqueries-fallback: desktop;
+// $respond-to-fallback-class: lt-ie9;
+// $respond-to-breakpoints: (
+//     desktop "(min-width: 921px)",
+//     pad "(min-width: 569px) and (max-width: 920px)",
+//     phone "(max-width: 568px)"
+// );
+// 
+// 
+// Code your mediaqueries/styles in a descending order:
+// 
+// large viewport -> small viewport -> global styles
+// 
+// .my-class {
+//     
+//     // Media Queries
+//     @include respond-to(desktop, pad) {
+//         color: #ff0;
+//     }
+//     
+//     @include respond-to(phone) {
+//         color: #f0f;
+//     }
+//     
+//     // Global Styles
+//     position: relative;
+//     
+// }
+// 
+
+@mixin respond-to($medias...) {
+	$breakpoints-length: length($respond-to-breakpoints);
+	
+	@each $media in $medias {
+		$had-a-hit: false;
+		
+		@for $i from 1 through $breakpoints-length {
+			$breakpoint: nth($respond-to-breakpoints, $i);
+			@if $media == nth($breakpoint, 1) {
+				$definition: nth($breakpoint, 2);
+				$had-a-hit: true;
+				@media #{$definition} {
+					@content;
+				}
+			}
+		}
+		
+		@if $media == $respond-to-no-mediaqueries-fallback {
+			.#{$respond-to-fallback-class} & {
+				@content;
+			}
+		}
+		
+		@if $had-a-hit == false {
+			@warn "Media #{media} not found!";
+		}
+	}
+}

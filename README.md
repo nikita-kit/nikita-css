@@ -346,7 +346,7 @@ __exception, where you don't omit__
 ```
 
 
-#### Use hexadecimal color codes #000 unless using rgba or hsl
+#### Use hexadecimal color codes unless using rgba or hsl
 
 In most cases the hex code is shorter than the color names, so you could save some bits.
 
@@ -457,13 +457,14 @@ __good__
 
 There are two main SCSS-files `styles.scss` and `universal.scss`.
 
-The `styles.scss` imports all partials. `mixins`, `icons` and `blocks` will be imported with a globbing-pattern. It's important that _every block-component_ gets its own partial and is put into the `blocks`-folder! Use subfolders if your site uses lots of partials.
+The `styles.scss` imports all partials. `variables`, `mixins`, `extends`, `icons` and `blocks` will be imported with a globbing-pattern. It's important that _every block-component_ gets its own partial and is put into the `blocks`-folder! Use subfolders if your site uses lots of partials.
 
 The `universal.scss` is a universal fallback stylesheet for older IE browsers mady by [Andy Clarke](http://code.google.com/p/universal-ie6-css/).
 
 This is how the `sass`-folder looks like:
 
 ```
+$ tree
 .
 ├── _basics.scss
 ├── _reset.scss
@@ -500,6 +501,7 @@ This is how the `sass`-folder looks like:
 └── variables
     ├── _breakpoints.scss
     ├── _color.scss
+    ├── _timing.scss
     ├── _typography.scss
     └── …
 ```
@@ -660,6 +662,11 @@ We provide some useful [Extends](https://github.com/nikita-kit/nikita-css/tree/m
 ### SASS Mixins
 
 Same with [Mixins](https://github.com/nikita-kit/nikita-css/tree/master/mixins). Help yourselves!
+
+
+### SASS Variables
+
+Some [Variables](https://github.com/nikita-kit/nikita-css/tree/master/variables) used by mixins.
 
 
 ## Questions?

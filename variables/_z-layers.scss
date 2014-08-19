@@ -1,0 +1,18 @@
+//
+// Z-Layer Variables
+//
+// These key/value pairs will be used by mixins/_layering.scss.
+// 
+// All z-index definitions will be stored in a Sass map
+// and managed here to get a perfect stacking overview.
+//
+
+$z-layers: (
+	"dropdown": 500,
+	"modal": (
+		"base": 100,
+		"close": 101
+	),
+	"default": 1,
+	"below": -1
+);

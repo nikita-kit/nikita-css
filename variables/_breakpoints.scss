@@ -1,0 +1,22 @@
+//
+// Breakpoint Variables
+//
+// Theses variables will be used by mixins/_respond-to.scss.
+//
+// The viewport-ranges must be mutually exclusive!
+//
+// <--- phone --- | --- pad --- | --- desktop --->
+//
+// That means in the example above you shouldn't use e.g.
+// min-width: 720px because it would interfere the ranges
+// of the breakpoints pad and desktop and so would result
+// in a bad maintainability.
+//
+
+$respond-to-no-mediaqueries-fallback: desktop;
+$respond-to-fallback-class: lt-ie9;
+$respond-to-breakpoints: (
+	desktop "screen and (min-width: 921px)",
+	pad "screen and (min-width: 569px) and (max-width: 920px)",
+	phone "screen and (max-width: 568px)"
+);

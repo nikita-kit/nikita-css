@@ -1,0 +1,40 @@
+// 
+// font-smoothing mixin
+// --------------------
+// 
+// This mixin is used for better font-rendering on OS X,
+// because due to its sub-pixel antialiasing algorithm
+// OS X tends to render light text on dark backgrounds too bold. 
+// 
+// Sample input:
+// .light-on-dark {
+//     @include font-smoothing(on);
+// }
+// 
+// .dark-on-light {
+//     @include font-smoothing(off);
+// }
+// 
+// Sample ounput:
+// .light-on-dark {
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+// }
+// 
+// .dark-on-light {
+//     -webkit-font-smoothing: subpixel-antialiased;
+//     -moz-osx-font-smoothing: auto;
+// }
+// 
+
+@mixin font-smoothing($value) {
+	@if $value == "on" {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	
+	@if $value == "off" {
+		-webkit-font-smoothing: subpixel-antialiased;
+		-moz-osx-font-smoothing: auto;
+	}
+}

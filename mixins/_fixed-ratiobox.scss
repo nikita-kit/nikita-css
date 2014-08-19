@@ -1,0 +1,97 @@
+// 
+// fixed-ratiobox mixin
+// --------------------
+// 
+// Did you ever want to resize an element like a video on the fly, scaling it as you would an image?
+// Using intrinsic ratios, you can. This technique allows browsers to determine the element dimensions
+// based on the width of their containing block.
+// See: http://alistapart.com/article/creating-intrinsic-ratios-for-video
+// 
+// This mixin uses intrinsic ratio to force any child elements to fluidly scale at a given ratio,
+// including videos and frames, making awesome responsive happiness. :)
+//
+// It was found on: https://github.com/Team-Sass/toolkit#intrinsic-ratios
+//
+// Sample input:
+// .element {
+//     @include fixed-ratiobox(4/3, 50%, "img, figure");
+// }
+//
+// Sample output:
+// .element {
+//     display: block;
+//     position: relative;
+//     height: 0;
+//     width: 50%;
+//     padding-bottom: 37.5%; // 3 * 50 / 4
+// }
+// 
+// .element img,
+// .element figure {
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     width: 100%;
+//     height: 100%;
+//     margin: 0;
+//     padding: 0;
+// }
+//
+
+$intrinsic-ratio: 16/9 !default;
+$intrinsic-ratio-width: 100% !default;
+$intrinsic-ratio-elements: "> *" !default;
+$intrinsic-ratio-extend: true !default;
+$intrinsic-ratio-direction: top !default;
+
+@mixin intrinsic-ratio-parent($extend: $intrinsic-ratio-extend) {
+	@if $extend {
+		@extend %intrinsic-ratio-parent;
+	} @else {
+		display: block;
+		position: relative;
+		height: 0;
+	}
+}
+
+@mixin intrinsic-ratio-child($extend: $intrinsic-ratio-extend) {
+	@if $extend {
+		@extend %intrinsic-ratio-child;
+	} @else {
+		display: block;
+		position: absolute;
+		top: 0;
+		width: 100%; // !important Nuke the external styles
+		height: 100%; // !important Nuke the external styles
+		margin: 0;
+		padding: 0;
+	}
+}
+
+@mixin intrinsic-ratio-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $direction: $intrinsic-ratio-direction) {
+	width: $width;
+	padding-#{$direction}: (1 / $ratio) * $width;
+}
+
+@mixin intrinsic-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend, $direction: $intrinsic-ratio-direction) {
+	@include intrinsic-ratio-parent($extend);
+	@include intrinsic-ratio-ratio($ratio, $width, $direction);
+	
+	@each $element in $elements {
+		#{$element} {
+			@include intrinsic-ratio-child($extend);
+		}
+	}
+}
+
+@mixin fixed-ratiobox($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend, $direction: $intrinsic-ratio-direction) {
+	@include intrinsic-ratio($ratio, $width, $elements, $extend, $direction);
+}
+
+%intrinsic-ratio-parent {
+	@include intrinsic-ratio-parent(false);
+}
+
+%intrinsic-ratio-child {
+	@include intrinsic-ratio-child(false);
+}
