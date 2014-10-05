@@ -80,7 +80,7 @@ Component Blocks:
 
 #### Commenting
 
-Start with a small description of the rule set, then number tiny details that are worth an explanation. The numbers are matching with the numbered comments at the end of the CSS rules, e.g. `/* 1 */`.
+Start with a small description of the rule set, then number tiny details that are worth an explanation. The numbers are matching with the numbered comments at the end of the CSS rules, e.g. `/* [1] */`.
 
 ```
 /**
@@ -91,10 +91,10 @@ Start with a small description of the rule set, then number tiny details that ar
  
 .box {
 	position: fixed;
-	transform: translate3d(0, 0, 0); /* 1 */
+	transform: translate3d(0, 0, 0); /* [1] */
 	
 	.csspositionsticky & {
-		position: sticky; /* 2 */
+		position: sticky; /* [2] */
 	}
 }
 ```
@@ -526,7 +526,17 @@ Some explanation:
 
 (This list is not intended to be exhaustive.)
 
+Someone said: »Preprocessors do not output bad code. Bad developers do.« That's why it's important to have a common ruleset. If you work in a team with other frontend developers you get the following benefits: maintainability, scalability, efficiency, you avoid conflicts from the beginning and last but not least you save time for the finer things. :)
+
+
+#### Syntax
+
 I'm using SCSS-syntax because it's valid CSS and more expressive in my eyes.
+
+
+#### Order of definition
+
+If you have a consistent order of definition, everybody can scan the code on first sight.
 
 __List media queries first__
 
@@ -592,8 +602,7 @@ __List regular styles next__
 }
 ```
 
-
-__List pseudo-class/element nesting with & (separated by a blank line)__
+__List pseudo-class/elements nesting with & (separated by a blank line)__
 
 ```
 .b-foo {
@@ -608,7 +617,11 @@ __List pseudo-class/element nesting with & (separated by a blank line)__
 	@include centering(horiz);
 	color: #000;
 	
-	&:after {
+	&:hover {
+		color: #fff;
+	}
+	
+	&::after {
 		content: "";
 	}
 	
@@ -630,18 +643,25 @@ __List nested selectors last (separated by a blank line)__
 	@include centering(horiz);
 	color: #000;
 	
-	&:after {
+	&:hover {
+		color: #fff;
+	}
+	
+	&::after {
 		content: "";
 	}
 	
 	> .bar {
-		background-color: #f30;
+		background-color: #f90;
 	}
 	
 }
 ```
 
-__Maximum Nesting: three levels deep__
+
+#### Nesting
+
+Maximum Nesting: three levels deep!
 
 ```
 .b-foo {
@@ -650,6 +670,330 @@ __Maximum Nesting: three levels deep__
 			// no more!
 		}
 	}
+}
+```
+
+
+#### Order
+
+Selectors mirror the order of the markup.
+
+```
+<div class="b-foo">
+	<ul class="bar">
+		<li class="baz">
+			<a class="qux" href="#">Link</a>
+		</li>
+	</ul>
+</div>
+```
+
+__bad__
+
+```
+.b-foo {
+	.qux {
+		…
+	}
+	
+	.bar {
+		…
+	}
+}
+```
+
+__good__
+
+```
+.b-foo {
+	.bar {
+		…
+	}
+	
+	.qux {
+		…
+	}
+}
+```
+
+
+#### Bundling
+
+All child selectors are bundled below the parent selector.
+
+```
+<div class="b-foo">
+	<ul class="bar">
+		<li class="baz">
+			<a class="qux" href="#">Link</a>
+		</li>
+	</ul>
+</div>
+```
+
+__bad__
+
+```
+.b-foo {
+	.bar {
+		…
+	}
+}
+
+.b-foo {
+	.qux {
+		…
+	}
+}
+```
+
+__good__
+
+```
+.b-foo {
+	.bar {
+		…
+	}
+	
+	.qux {
+		…
+	}
+}
+```
+
+
+#### Child selectors
+
+Each child selector will be indented and set on a new line. Important: you don't have to mirror the complete DOM!  
+Rule of thumb: The selector is as short as possible. Indention only if the selector is needed.
+
+```
+<div class="b-foo">
+	<ul class="bar">
+		<li class="baz">
+			<a class="qux" href="#">Link</a>
+		</li>
+	</ul>
+</div>
+```
+
+__bad__
+
+```
+.b-foo {
+	.baz .qux {
+		…
+	}
+}
+```
+
+__bad too__
+
+```
+.b-foo {
+	.baz {
+		.qux {
+			…
+		}
+	}
+}
+```
+
+__good__
+
+```
+.b-foo {
+	.qux {
+		…
+	}
+}
+```
+
+
+#### Placeholder extends vs. class extends
+
+You have two options to extend code blocks that are reused several times: standard classes and placeholders. The advantage of placeholder extends over classes: they won't be added to the CSS output and remain silent. Very usefull for helper classes e.g. like the `clearfix` which was put directly on the markup in the past.
+
+__Class extend__
+
+```
+// Usage
+.foo {
+	padding: 10px;
+}
+
+.bar {
+	@extend .foo;
+	color: #fff;
+}
+
+// Output
+.foo,
+.bar {
+	padding: 10px;
+}
+
+.bar {
+	color: #fff;
+}
+```
+
+__Placeholder extend__
+
+```
+// Usage
+%foo {
+	padding: 10px;
+}
+
+.bar {
+	@extend %foo;
+	color: #fff;
+}
+
+// Output
+.bar {
+	padding: 10px;
+	color: #fff;
+}
+```
+
+
+#### Placeholder extends > Mixins
+
+To reuse SASS snippets repeatedly, you should choose placeholder extends and not mixins. Thus, the CSS output is smaller because selectors are summarized.
+
+__bad__
+
+```
+// Mixin
+@mixin ellipsis() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// Usage
+.foo {
+	@include ellipsis();
+}
+
+.bar {
+	@include ellipsis();
+}
+
+// Output
+.foo {
+	overflow: hidden;
+	text-overflow: ellipsis:
+	white-space: nowrap;
+}
+
+.bar {
+	overflow: hidden;
+	text-overflow: ellipsis:
+	white-space: nowrap;
+}
+```
+
+__good__
+
+```
+// Placeholder extend
+%ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// Usage
+.foo {
+	@extend %ellipsis;
+}
+
+.bar {
+	@extend %ellipsis;
+}
+
+// Output
+.foo,
+.bar {
+	overflow: hidden;
+	text-overflow: ellipsis:
+	white-space: nowrap;
+}
+```
+
+
+#### Keep it simple – Part 1
+
+Just because you can solve problems with functions, mixins etc. in SASS, you must not necessarily do it. :)  
+Always remember that others should easily read and understand your code too.
+
+__elaborate__
+
+```
+// Mixin
+@mixin context($old-context, $new-context) {
+	@at-root #{selector-replace(&, $old-context, $new-context)} {
+		@content;
+	}
+}
+
+// Usage
+li {
+	float: left;
+	
+	ul {
+		display: none;
+		
+		@include context('li', 'li:hover') {
+			display: block;
+		}
+	}
+}
+```
+
+__simple__
+
+```
+li {
+	float: left;
+	
+	ul {
+		display: none;
+	}
+	
+	&:hover ul {
+		display: block;
+	}
+}
+```
+
+
+#### Keep it simple – Part 2
+
+For better readability, you should write the properties as in CSS.
+
+__elaborate__
+
+```
+.foo {
+	font: {
+		family: arial, sans-serif;
+		size: 5em;
+		weight: 700;
+	}
+}
+```
+
+__simple__
+
+```
+.box {
+	font-family: arial, sans-serif;
+	font-size: 5em;
+	font-weight: 700;
 }
 ```
 
