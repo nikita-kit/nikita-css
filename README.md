@@ -10,7 +10,7 @@ If you're interested in HTML patterns, code snippets and best practices, try [ni
 
 ## Contents
 
-### CSS Rules
+### CSS Methodology
 
 We're using some variation of BEM+SMACSS+optionatedexperienceofcssdevelopmentyears:
 
@@ -524,14 +524,12 @@ Some explanation:
 
 ### SASS Coding Guidelines
 
-(This list is not intended to be exhaustive.)
-
 Someone said: »Preprocessors do not output bad code. Bad developers do.« That's why it's important to have a common ruleset. If you work in a team with other frontend developers you get the following benefits: maintainability, scalability, efficiency, you avoid conflicts from the beginning and last but not least you save time for the finer things. :)
 
 
 #### Syntax
 
-I'm using SCSS-syntax because it's valid CSS and more expressive in my eyes.
+We're using SCSS-syntax because it's valid CSS and more expressive in our eyes.
 
 
 #### Order of definition
@@ -674,7 +672,76 @@ Maximum Nesting: three levels deep!
 ```
 
 
-#### Order
+#### Blocks in blocks
+
+Where to define the styles for blocks in blocks? Answer: always in your block which gets the styling. Otherwise you have to maintain more than one file which is error-prone.
+
+Example: Assumed that you have a different styling for the user-avatar-block, based on whether it's in your page-header-block or in your page-footer-block.
+
+```
+<div class="b-page-header">
+	<div class="b-user-avatar">
+		…
+	</div>
+</div>
+
+<div class="b-page-footer">
+	<div class="b-user-avatar">
+		…
+	</div>
+</div>
+```
+
+__bad__
+
+```
+// _page-header.scss
+.b-page-header {
+	.b-user-avatar {
+		float: right;
+		width: 100px;
+		height: 100px;
+	}
+}
+
+// _page-header.scss
+.b-page-footer {
+	.b-user-avatar {
+		float: left;
+		width: 50px;
+		height: 50px;
+	}
+}
+
+// _user-avatar.scss
+.b-user-avatar {
+	border-radius: 50%;
+}
+```
+
+__good__
+
+```
+// _user-avatar.scss
+.b-user-avatar {
+	border-radius: 50%;
+	
+	.b-page-header & {
+		float: right;
+		width: 100px;
+		height: 100px;
+	}
+	
+	.b-page-footer & {
+		float: left;
+		width: 50px;
+		height: 50px;
+	}
+}
+```
+
+
+#### Order of elements
 
 Selectors mirror the order of the markup.
 
