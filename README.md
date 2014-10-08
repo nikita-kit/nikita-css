@@ -704,7 +704,7 @@ __bad__
 	}
 }
 
-// _page-header.scss
+// _page-footer.scss
 .b-page-footer {
 	.b-user-avatar {
 		float: left;
