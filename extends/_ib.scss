@@ -1,0 +1,14 @@
+// Use display: inline-block; as a float-alternative
+
+%ib-parent {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	word-spacing: -1em;
+}
+
+%ib-child {
+	display: inline-block;
+	vertical-align: top;
+	word-spacing: 0;
+}
