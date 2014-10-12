@@ -23,3 +23,8 @@ Ellipsis to point out text
 ### hide-text
 
 Hide text on elements in sake of accessibility
+
+
+### ib
+
+Use the inline-block method as an alternative to float elements
