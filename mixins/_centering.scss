@@ -6,11 +6,11 @@
 // 
 // Sample input:
 // .element-1 {
-//     @include centering(horiz);
+//     @include centering(vert);
 // }
 //
 // .element-2 {
-//     @include centering(vert);
+//     @include centering(horiz);
 // }
 //
 // .element-3 {
@@ -43,14 +43,14 @@
 		position: absolute;
 	}
 	
-	@if $scope == "horiz" {
+	@if $scope == "vert" {
 		& {
 			left: 50%;
 			transform: translateX(-50%);
 		}
 	}
 	
-	@if $scope == "vert" {
+	@if $scope == "horiz" {
 		& {
 			top: 50%;
 			transform: translateY(-50%);
