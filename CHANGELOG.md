@@ -1,4 +1,4 @@
-# 0.11
+# 0.11.0
 
 * centering-mixin: substitute "vert" and "horiz"
 
