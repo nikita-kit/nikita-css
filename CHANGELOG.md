@@ -1,6 +1,6 @@
 # 0.11.0
 
-* centering-mixin: substitute "vert" and "horiz"
+* [BC] centering-mixin: substitute "vert" and "horiz"
 
 # 0.10.1
 
