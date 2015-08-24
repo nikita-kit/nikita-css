@@ -20,14 +20,14 @@
 // Sample output:
 // .element-1 {
 //     position: absolute;
-//     top: 50%;
-//     transform: translateY(-50%);
+//     left: 50%;
+//     transform: translateX(-50%);
 // }
 // 
 // .element-2 {
 //     position: absolute;
-//     left: 50%;
-//     transform: translateX(-50%);
+//     top: 50%;
+//     transform: translateY(-50%);
 // }
 // 
 // .element-3 {
@@ -45,15 +45,15 @@
 	
 	@if $scope == "horiz" {
 		& {
-			top: 50%;
-			transform: translateY(-50%);
+			left: 50%;
+			transform: translateX(-50%);
 		}
 	}
 	
 	@if $scope == "vert" {
 		& {
-			left: 50%;
-			transform: translateX(-50%);
+			top: 50%;
+			transform: translateY(-50%);
 		}
 	}
 	

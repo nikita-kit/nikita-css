@@ -1,3 +1,7 @@
+# 0.11
+
+* centering-mixin: substitute "vert" and "horiz"
+
 # 0.10.1
 
 * added _ib.scss description
