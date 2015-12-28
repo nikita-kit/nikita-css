@@ -1,0 +1,27 @@
+language: node_js
+sudo: false
+script:
+- echo "no build step yet"
+node_js:
+- 4.2.4
+before_deploy:
+- npm install json
+- node_modules/.bin/json -E "this.version='$TRAVIS_TAG'" -f package.json -I
+env:
+- CXX=g++-4.8
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+deploy:
+  provider: npm
+  email: JanS@DracoBlue.de
+  api_key:
+    secure: JulvFLWGCtKVVs2CZonDOWd6Lu1KuxE4B9HZmcVVosW/wqIJvjMZBnu6Sj6LgvBclX9U17qEZZBWaILZH5CtlmqlpTD+4TOL2vBoyozwjI7WhQON5MO9fVmf/3F7nkUrSWQLIECGsCpNqvzCRZVKjBoYCTtFjuur1ULoJllpXoM=
+  on:
+    tags: true
+    repo: nikita-kit/nikita-css
+    all_branches: true
+    node: 4.2.4

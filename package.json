@@ -1,0 +1,21 @@
+{
+  "name": "nikita-css",
+  "license": "CC0-1.0",
+  "homepage": "https://github.com/nikita-kit/nikita-css",
+  "author": {
+    "name": "",
+    "email": "",
+    "homepage": "https://github.com/nikita-kit"
+  },
+  "description": "The (S)CSS conventions and coding guidelines for nikita.kit",
+  "keywords": [
+    "html",
+    "css",
+    "bem",
+    "scss",
+    "smacss",
+    "coding",
+    "guidelines",
+    "sass"
+  ]
+}
