@@ -19,7 +19,7 @@ deploy:
   provider: npm
   email: JanS@DracoBlue.de
   api_key:
-    secure: JulvFLWGCtKVVs2CZonDOWd6Lu1KuxE4B9HZmcVVosW/wqIJvjMZBnu6Sj6LgvBclX9U17qEZZBWaILZH5CtlmqlpTD+4TOL2vBoyozwjI7WhQON5MO9fVmf/3F7nkUrSWQLIECGsCpNqvzCRZVKjBoYCTtFjuur1ULoJllpXoM=
+    secure: W2oCA2WB6xZ1K4US9wp0CQoCh49orwtu9PklmXr5H36i6KeBNeMtwPAxM2X22GlYGVi00iezxN8S46dnRQtjq486ZPtrqya9OmQKcz7k/5qDbBLpVoxsaAMM7n+vxiU8hnSe7V4Q6F28yhbmL5EPv8r0HP6JYQHLOPVEFLN0iV0=
   on:
     tags: true
     repo: nikita-kit/nikita-css
