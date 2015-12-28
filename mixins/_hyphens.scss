@@ -1,0 +1,11 @@
+//
+// layout helpers
+// --------------------
+//
+//
+
+@mixin hyphens {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+}

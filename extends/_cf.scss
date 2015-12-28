@@ -1,13 +1,14 @@
-// Micro clearfix
+// Clearfix
 
 %cf {
-	&:before,
-	&:after {
-		content: "";
-		display: table;
-	}
-	
-	&:after {
-		clear: both;
-	}
+    display: block;
+
+    &:after {
+        visibility: hidden;
+        display: block;
+        clear: both;
+        height: 0;
+        font-size: 0;
+        content: "";
+    }
 }

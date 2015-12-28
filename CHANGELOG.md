@@ -1,5 +1,8 @@
 # DEV
 
+* added a few new mixins and removed redundant extends
+* removed variables folder since it's located inside the generator
+
 * updated respond-to mixin to make fallback optional
 * added .travis.yml
 

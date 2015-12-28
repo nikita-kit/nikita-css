@@ -1,0 +1,28 @@
+//
+// font-sizes and line heights
+// --------------------
+//
+//
+
+$default-font-size: 16;
+
+// font size - line height in em mixin, needs $default-font-size
+@mixin font-height-em ( $font_size, $line_height, $base_font_size: $default-font-size ) {
+
+  $font_size_em: round(($font-size / $base_font_size)*10000)/10000;
+  $line_height_em: round(($line_height / $font_size)*10000)/10000;
+
+  font-size: $font_size_em + em; /* #{$font_size + px} */
+  line-height: $line_height_em + em; /* #{$line_height + px} */
+}
+
+// font size - line height in rem mixin, needs $default-font-size
+@mixin font-height ( $font_size, $line_height ) {
+
+  $font_size_in_rem: round(($font-size / $default-font-size)*10000)/10000;
+  $line_height_unitless: round(($line_height / $font_size)*10000)/10000;
+
+  font-size: $font_size + px;
+  font-size: $font_size_in_rem + rem; /* #{$font_size + px} */
+  line-height: $line_height_unitless; /* #{$line_height + px} */
+}

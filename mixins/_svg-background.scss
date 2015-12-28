@@ -1,0 +1,18 @@
+//
+// svg-background mixin
+// --------------------
+//
+// This mixin is used for delivering grunt-svgcss-generated background-images to different browsers after being string-replaced.
+//
+// @see: https://github.com/erickrdch/grunt-string-replace
+// @see: https://github.com/psyrendust/grunt-svg-css
+//
+// Usage:
+// .element {
+//     @include svg-background(name-of-your-file);
+// }
+//
+
+@mixin svg-background($name) {
+    @extend %bg-data-svg-#{$name};
+}
