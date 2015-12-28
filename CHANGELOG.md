@@ -1,4 +1,7 @@
+# DEV
+
 * updated respond-to mixin to make fallback optional
+* added .travis.yml
 
 # 0.11.0
 
