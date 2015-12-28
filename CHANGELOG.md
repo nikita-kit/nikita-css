@@ -1,3 +1,5 @@
+* updated respond-to mixin to make fallback optional
+
 # 0.11.0
 
 * [BC] centering-mixin: substitute "vert" and "horiz"
