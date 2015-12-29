@@ -1,7 +1,9 @@
 // Hide elements in sake of accessibility
 
 %a11y {
+	clip: rect(1px, 1px, 1px, 1px);
+	overflow: hidden;
 	position: absolute;
-	top: -32768px;
-	left: -32768px;
+	width: 1px;
+	height: 1px;
 }
