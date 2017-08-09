@@ -4,8 +4,9 @@ This is our methodology how to write efficient and scalable (S)CSS for big websi
 
 Latest Release: [![GitHub version](https://badge.fury.io/gh/nikita-kit%2Fnikita-css.png)](https://github.com/nikita-kit/nikita-css/releases)
 
-If you want to start a new project from scratch, try [nikita.kickstarter](https://github.com/nikita-kit/nikita-kickstarter).  
-If you're interested in HTML patterns, code snippets and best practices, try [nikita.html](https://github.com/nikita-kit/nikita-html).
+If you want to start a new project from scratch, try [nikita.generator](https://github.com/nikita-kit/generator-nikita).  
+If you're interested in HTML patterns, code snippets and best practices, try [nikita.html](https://github.com/nikita-kit/nikita-html).  
+If you're interested in our Javascript conding style guide, try [nikita.js](https://github.com/nikita-kit/nikita-js).  
 
 
 ## Contents

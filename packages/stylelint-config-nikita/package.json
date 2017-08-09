@@ -1,0 +1,44 @@
+{
+    "name": "stylelint-config-nikita",
+    "license": "CC0-1.0",
+    "homepage": "https://github.com/nikita-kit/nikita-css",
+    "author": {
+        "name": "",
+        "email": "",
+        "homepage": "https://github.com/nikita-kit"
+    },
+    "description": "stylelint config following the nikita (s)css coding guidelines",
+    "keywords": [
+        "nikita",
+        "sass",
+        "scss",
+        "stylelint",
+        "stylelint-config",
+        "config",
+        "css",
+        "guidelines",
+        "styleguide"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "lint": "stylelint ../../**/*.scss",
+        "lint-fix": "stylelint ../../**/*.scss --fix",
+        "find-rules": "stylelint-find-rules --config index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nikita-kit/nikita-css"
+    },
+    "devDependencies": {
+        "stylelint": "^8.0.0",
+        "stylelint-find-rules": "^0.7.0",
+        "stylelint-order": "^0.6.0"
+    },
+    "peerDependencies": {
+        "stylelint": "^8.0.0",
+        "stylelint-order": "^0.6.0"
+    },
+    "engines": {
+        "node": ">= 4"
+    }
+}
