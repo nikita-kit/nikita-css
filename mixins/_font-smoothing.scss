@@ -28,13 +28,13 @@
 // 
 
 @mixin font-smoothing($value) {
-	@if $value == "on" {
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
+    @if $value == "on" {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 	
-	@if $value == "off" {
-		-webkit-font-smoothing: subpixel-antialiased;
-		-moz-osx-font-smoothing: auto;
-	}
+    @if $value == "off" {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
 }

@@ -448,7 +448,6 @@ __bad__
 __good__
 
 ```
-<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9 ie8" lang="de"> <![endif]-->
 <!--[if IE 9]> <html class="no-js lt-ie10 ie9" lang="de"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" lang="de"> <!--<![endif]-->
 ```
