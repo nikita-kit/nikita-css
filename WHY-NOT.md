@@ -40,13 +40,3 @@ Usage: `@extend %placeholder-name`
 ## Why don't you put the breakpoints into the `_respond-to.scss`?
 
 Since the breakpoints are project specific, it's better to have them in the `variables` folder. Otherwise you cannot grap and copy the `_respond-to` mixin into your project, without modifiying it.
-
-
-## Why not use spaces instead of tabs to indent code?
-
-In short, because spaces aren't infallible. They destroy the developer's original intention and are frustrating to use.
-
-Sources:
-
-- [Tabs vs. Spaces, We Meet Again](http://jedmao.ghost.io/2014/08/20/tabs-vs-spaces-the-age-old-war/)
-- [Why tabs are clearly superior](http://lea.verou.me/2012/01/why-tabs-are-clearly-superior/)

@@ -106,7 +106,7 @@ Start with a small description of the rule set, then number tiny details that ar
 (This list is not intended to be exhaustive.)
 
 - Use lowercase for class names.
-- Be consistant with indentation – I'm using tabs instead of spaces.
+- Be consistant with indentation – we use spaces instead of tabs.
 - Be consistent in declaration order, cluster related properties (Positioning, Box-Model, Text & Color). I'm no fan of an alphabetical order.
 - Be consistant with quotes – I'm using double quotes `""`.
 - Quote attribute values in selectors, e.g. `input[type="checkbox"]`.
@@ -455,11 +455,8 @@ __good__
 
 ### SASS structure
 
-There are two main SCSS-files `styles.scss` and `universal.scss`.
-
-The `styles.scss` imports all partials. `variables`, `mixins`, `extends`, `icons` and `blocks` will be imported with a globbing-pattern. It's important that _every block-component_ gets its own partial and is put into the `blocks`-folder! Use subfolders if your site uses lots of partials.
-
-The `universal.scss` is a universal fallback stylesheet for older IE browsers mady by [Andy Clarke](http://code.google.com/p/universal-ie6-css/).
+The main SCSS-file is `styles.scss`. It imports all partials. `variables`, `mixins`, `extends`, `icons` and `blocks` will be imported with a globbing-pattern.
+It's important that _every block-component_ gets its own partial and is put into the `blocks`-folder! Use subfolders if your site uses lots of partials.
 
 This is how the `sass`-folder looks like:
 
@@ -485,11 +482,6 @@ $ tree
 │   └── ui-components
 │       ├── _buttons.scss
 │       └── …
-├── grunticon
-├── icons
-│   ├── _icons-data-png.scss
-│   ├── _icons-data-svg.scss
-│   └── _icons-fallback.scss
 ├── mixins
 │   ├── _grunticon.scss
 │   ├── _px-to-rem.scss
@@ -497,7 +489,6 @@ $ tree
 │   ├── _triangle.scss
 │   └── …
 ├── styles.scss
-├── universal.scss
 └── variables
     ├── _breakpoints.scss
     ├── _color.scss
@@ -514,17 +505,15 @@ Some explanation:
 - __blocks/__ – all block-component-partials go in here
 - __extends/__ – put your placeholder-extends in here, e.g. `a11y`, `cf`, `hide-text` etc.
 - __extends/ui-components__ – put your ui-components in here, e.g. `buttons` etc.
-- __grunticon/__ – output by the grunticon-task, files will be processed by the string-replace-task afterwards
-- __icons/__ – output by the string-replace-task, you can use the grunticon-mixin to include the `%icons`
 - __mixins/__ – put your mixins in here, e.g. `px-to-rem`, `respond-to` etc.
 - __styles.scss__ – main stylesheet, includes all partials
-- __universal.scss__ – stylesheet for old browsers, based on [universal-ie6-css](https://code.google.com/p/universal-ie6-css/)
 - __variables/__ – put your variables in here, e.g. `color`, `typography` etc.
 
 
 ### SASS Coding Guidelines
 
-Someone said: »Preprocessors do not output bad code. Bad developers do.« That's why it's important to have a common ruleset. If you work in a team with other frontend developers you get the following benefits: maintainability, scalability, efficiency, you avoid conflicts from the beginning and last but not least you save time for the finer things. :)
+Someone said: »Preprocessors do not output bad code. Bad developers do.« That's why it's important to have a common ruleset.
+If you work in a team with other frontend developers you get the following benefits: maintainability, scalability, efficiency, you avoid conflicts from the beginning and last but not least you save time for the finer things. :)
 
 
 #### Syntax
