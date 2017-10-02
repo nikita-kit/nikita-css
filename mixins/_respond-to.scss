@@ -47,34 +47,30 @@
 
 
 @mixin respond-to($medias...) {
-  $breakpoints_length: length($respond-to-breakpoints);
+    @each $media in $medias {
+        @for $i from 1 through $breakpoints_length {
+            @if $media == nth($breakpoint, 1) {
+                @media #{$definition} {
+                    @content;
+                }
+                $definition: nth($breakpoint, 2);
+                $had_a_hit: true;
+            }
+            $breakpoint: nth($respond-to-breakpoints, $i);
+        }
+        // if these variables are not defined, skip generating fallback
+        @if global-variable-exists(respond-to-no-mediaqueries-fallback) and global-variable-exists(respond-to-fallback-class) {
+            @if $media == $respond-to-no-mediaqueries-fallback {
+                .#{$respond-to-fallback-class} & {
+                    @content;
+                }
+            }
+        }
 
-  @each $media in $medias {
-	$had_a_hit: false;
-
-	@for $i from 1 through $breakpoints_length {
-	  $breakpoint: nth($respond-to-breakpoints, $i);
-
-	  @if $media == nth($breakpoint, 1) {
-		$definition: nth($breakpoint, 2);
-		$had_a_hit: true;
-
-		@media #{$definition} {
-		  @content;
-		}
-	  }
-	}
-	// if these variables are not defined, skip generating fallback
-	@if global-variable-exists(respond-to-no-mediaqueries-fallback) and global-variable-exists(respond-to-fallback-class) {
-	  @if $media == $respond-to-no-mediaqueries-fallback {
-		.#{$respond-to-fallback-class} & {
-		  @content;
-		}
-	  }
-	}
-
-	@if $had_a_hit == false {
-	  @warn "Media #{media} not found!";
-	}
-  }
+        @if $had_a_hit == false {
+            @warn "Media #{media} not found!";
+        }
+        $had_a_hit: false;
+    }
+    $breakpoints_length: length($respond-to-breakpoints);
 }

@@ -1,5 +1,8 @@
 # DEV
 
+* added stylelint-config-nikita package
+* added .gitignore file and removed bower.json
+* linted scss files with stylelint
 * updated a11y extend to a get rid of the performace intensive positioning if you use it a lot
 * updated respond-to mixin to make fallback optional
 * added .travis.yml

@@ -9,13 +9,19 @@
   },
   "description": "The (S)CSS conventions and coding guidelines for nikita.kit",
   "keywords": [
+    "nikita",
     "html",
     "css",
     "bem",
     "scss",
+    "sass",
     "smacss",
     "coding",
     "guidelines",
-    "sass"
-  ]
+    "stylelint"
+  ],
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/nikita-kit/nikita-css"
+  }
 }

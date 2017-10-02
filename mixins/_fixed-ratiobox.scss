@@ -45,53 +45,57 @@ $intrinsic-ratio-extend: true !default;
 $intrinsic-ratio-direction: top !default;
 
 @mixin intrinsic-ratio-parent($extend: $intrinsic-ratio-extend) {
-	@if $extend {
-		@extend %intrinsic-ratio-parent;
-	} @else {
-		display: block;
-		position: relative;
-		height: 0;
-	}
+    @if $extend {
+        @extend %intrinsic-ratio-parent;
+    }
+
+    @else {
+        position: relative;
+        display: block;
+        height: 0;
+    }
 }
 
 @mixin intrinsic-ratio-child($extend: $intrinsic-ratio-extend) {
-	@if $extend {
-		@extend %intrinsic-ratio-child;
-	} @else {
-		display: block;
-		position: absolute;
-		top: 0;
-		width: 100%; // !important Nuke the external styles
-		height: 100%; // !important Nuke the external styles
-		margin: 0;
-		padding: 0;
-	}
+    @if $extend {
+        @extend %intrinsic-ratio-child;
+    }
+
+    @else {
+        position: absolute;
+        top: 0;
+        display: block;
+        width: 100%; // !important Nuke the external styles
+        height: 100%; // !important Nuke the external styles
+        margin: 0;
+        padding: 0;
+    }
 }
 
 @mixin intrinsic-ratio-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $direction: $intrinsic-ratio-direction) {
-	width: $width;
-	padding-#{$direction}: (1 / $ratio) * $width;
+    width: $width;
+    padding-#{$direction}: (1 / $ratio) * $width;
 }
 
 @mixin intrinsic-ratio($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend, $direction: $intrinsic-ratio-direction) {
-	@include intrinsic-ratio-parent($extend);
-	@include intrinsic-ratio-ratio($ratio, $width, $direction);
+    @include intrinsic-ratio-parent($extend);
+    @include intrinsic-ratio-ratio($ratio, $width, $direction);
 	
-	@each $element in $elements {
-		#{$element} {
-			@include intrinsic-ratio-child($extend);
-		}
-	}
+    @each $element in $elements {
+        #{$element} {
+            @include intrinsic-ratio-child($extend);
+        }
+    }
 }
 
 @mixin fixed-ratiobox($ratio: $intrinsic-ratio, $width: $intrinsic-ratio-width, $elements: $intrinsic-ratio-elements, $extend: $intrinsic-ratio-extend, $direction: $intrinsic-ratio-direction) {
-	@include intrinsic-ratio($ratio, $width, $elements, $extend, $direction);
+    @include intrinsic-ratio($ratio, $width, $elements, $extend, $direction);
 }
 
 %intrinsic-ratio-parent {
-	@include intrinsic-ratio-parent(false);
+    @include intrinsic-ratio-parent(false);
 }
 
 %intrinsic-ratio-child {
-	@include intrinsic-ratio-child(false);
+    @include intrinsic-ratio-child(false);
 }

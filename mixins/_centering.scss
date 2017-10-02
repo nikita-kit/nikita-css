@@ -39,29 +39,29 @@
 // 
 
 @mixin centering($scope) {
-	& {
-		position: absolute;
-	}
-	
-	@if $scope == "horiz" {
-		& {
-			left: 50%;
-			transform: translateX(-50%);
-		}
-	}
-	
-	@if $scope == "vert" {
-		& {
-			top: 50%;
-			transform: translateY(-50%);
-		}
-	}
-	
-	@if $scope == "horiz-and-vert" {
-		& {
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
-	}
+    @if $scope == "horiz" {
+        & {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    @if $scope == "vert" {
+        & {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    @if $scope == "horiz-and-vert" {
+        & {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    & {
+        position: absolute;
+    }
 }
