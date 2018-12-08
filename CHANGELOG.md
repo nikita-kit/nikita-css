@@ -1,6 +1,9 @@
-# DEV
+# dev
 
 * removed mixins and extends, these are now part of nikita-generator
+* updated `stylelint` to 9.9.0
+* updated `stylelint-order` to 2.0.0
+
 
 # 1.0.0 (2017/10/03)
 
