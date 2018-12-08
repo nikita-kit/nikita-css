@@ -1,5 +1,9 @@
 # DEV
 
+* removed mixins and extends, these are now part of nikita-generator
+
+# 1.0.0 (2017/10/03)
+
 * added stylelint-config-nikita package
 * added .gitignore file and removed bower.json
 * linted scss files with stylelint
