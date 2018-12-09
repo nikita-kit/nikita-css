@@ -116,7 +116,6 @@ Start with a small description of the rule set, then number tiny details that ar
 - Put a `;` at the end of the last declaration in a declaration block.
 - Include a space after each comma in comma-separated property or function values, e.g. `rgba(0, 0, 0, 0)`.
 - Separate each ruleset by a blank line.
-- Document styles with [KSS](https://github.com/kneath/kss).
 
 
 ### CSS Coding Guidelines
@@ -473,19 +472,9 @@ $ tree
 │   ├── _page-nav.scss
 │   └── …
 ├── extends
-│   ├── _a11y.scss
-│   ├── _cf.scss
-│   ├── _ellipsis.scss
-│   ├── _hide-text.scss
-│   ├── _ib.scss
+│   ├── _buttons.scss
 │   ├── …
-│   └── ui-components
-│       ├── _buttons.scss
-│       └── …
 ├── mixins
-│   ├── _grunticon.scss
-│   ├── _px-to-rem.scss
-│   ├── _respond-to.scss
 │   ├── _triangle.scss
 │   └── …
 ├── styles.scss
@@ -504,7 +493,6 @@ Some explanation:
 - __webfonts.scss__ – use it for `@font-face`-declarations
 - __blocks/__ – all block-component-partials go in here
 - __extends/__ – put your placeholder-extends in here, e.g. `a11y`, `cf`, `hide-text` etc.
-- __extends/ui-components__ – put your ui-components in here, e.g. `buttons` etc.
 - __mixins/__ – put your mixins in here, e.g. `px-to-rem`, `respond-to` etc.
 - __styles.scss__ – main stylesheet, includes all partials
 - __variables/__ – put your variables in here, e.g. `color`, `typography` etc.
@@ -1052,21 +1040,6 @@ __simple__
 	font-weight: 700;
 }
 ```
-
-
-### SASS Extends
-
-We provide some useful [Extends](https://github.com/nikita-kit/nikita-css/tree/master/extends) which can easily be copied/pasted into your project.
-
-
-### SASS Mixins
-
-Same with [Mixins](https://github.com/nikita-kit/nikita-css/tree/master/mixins). Help yourselves!
-
-
-### SASS Variables
-
-Some [Variables](https://github.com/nikita-kit/nikita-css/tree/master/variables) used by mixins.
 
 
 ## Questions?
