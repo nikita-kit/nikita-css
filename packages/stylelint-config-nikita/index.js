@@ -95,8 +95,7 @@ module.exports = {
         "media-query-list-comma-space-after": "always-single-line",
         "media-query-list-comma-space-before": "never",
         "no-empty-source": true,
-        "no-eol-whitespace": null, //remove option if no-eol-whitespace is fixable
-        // "no-eol-whitespace": [false, { ignore: ["empty-lines"] }], //remove option if no-eol-whitespace is fixable
+        "no-eol-whitespace": true,
         "no-extra-semicolons": true,
         "no-invalid-double-slash-comments": true,
         "no-missing-end-of-source-newline": true,
