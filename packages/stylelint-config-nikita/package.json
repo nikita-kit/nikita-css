@@ -23,7 +23,7 @@
     "scripts": {
         "lint": "stylelint ../../**/*.scss",
         "lint-fix": "stylelint ../../**/*.scss --fix",
-        "find-rules": "stylelint-find-rules --config index.js"
+        "find-rules": "stylelint-find-new-rules --config index.js"
     },
     "repository": {
         "type": "git",
@@ -31,7 +31,7 @@
     },
     "devDependencies": {
         "stylelint": "^9.9.0",
-        "stylelint-find-rules": "^1.1.1",
+        "stylelint-find-new-rules": "^1.0.1",
         "stylelint-order": "^2.0.0"
     },
     "peerDependencies": {

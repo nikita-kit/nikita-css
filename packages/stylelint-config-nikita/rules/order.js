@@ -1,9 +1,9 @@
 module.exports = {
     rules: {
         "order/order": [
-            "at-rules",
             "dollar-variables",
             "custom-properties",
+            "at-rules",
             "declarations",
             "rules"
         ],
@@ -187,7 +187,7 @@ module.exports = {
             "transform",
             "animation",
         ], {
-            unspecified: "bottomAlphabetical" // "ignore" is not supported with autofixing
-        }]
+            unspecified: "bottomAlphabetical"
+        }],
     },
 };

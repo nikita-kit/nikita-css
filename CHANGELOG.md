@@ -3,7 +3,7 @@
 * removed mixins and extends, these are now part of nikita-generator
 * updated `stylelint` to 9.9.0
 * updated `stylelint-order` to 2.0.0
-
+* replaced `stylelint-find-rules` with `stylelint-find-new-rules`
 
 # 1.0.0 (2017/10/03)
 
