@@ -1,0 +1,66 @@
+.b-gallery {
+    @include media-breakpoint-down(sm) {
+        .slider {
+            margin: 0 -15px 20px;
+            box-shadow: none;
+        }
+
+        .carousel {
+            margin: 0 -15px 40px;
+            box-shadow: none;
+            border: 0;
+        }
+    }
+
+    .title {
+        margin: 20px 0;
+        line-height: 26px;
+    }
+
+    .buttons {
+        float: right;
+        display: flex;
+        margin: 0 0 10px 10px;
+        align-items: center;
+
+        .back {
+            margin-right: 10px;
+        }
+
+        .facebook {
+            @include svg-background(facebook);
+
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-size: contain;
+        }
+    }
+
+    .flexslider {
+        margin-bottom: 20px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+    }
+
+    .slider {
+        .image {
+            width: auto;
+            max-height: 630px;
+            margin: 0 auto;
+        }
+    }
+
+    .carousel {
+        border: 3px solid #fff;
+
+        .thumb {
+            background: $bg-color-light-grey;
+        }
+
+        .image {
+            width: auto;
+            max-height: 95px;
+            margin: 0 auto;
+        }
+    }
+}
