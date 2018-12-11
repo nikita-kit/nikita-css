@@ -11,7 +11,7 @@ If you're interested in our Javascript conding style guide, try [nikita.js](http
 
 ## Contents
 
-### CSS Methodology
+### Methodology
 
 We're using some variation of BEM+SMACSS+optionatedexperienceofcssdevelopmentyears:
 
@@ -32,9 +32,9 @@ Blocks and elements may be modified with __modifiers__. For instance the selecte
 	- __good:__ item, title, user-avatar (instead of user or avatar)
 	- __bad:__ user-user-avatar, menu-item-a
 - Modifier
-	- are prefixed with `is-`, and have to be defined in block or element scope
-	- __good:__ is-selected, is-active, is-approved
-	- __bad:__ selected, active, approved
+	- are prefixed with `is-` or `has-`, and have to be defined in block or element scope
+	- __good:__ is-selected, is-active, has-items
+	- __bad:__ selected, active, items
 
 
 #### Example
@@ -317,6 +317,31 @@ __good__
 ```
 
 
+#### prefer rem units whenever possible
+
+Then it's very easy to modify the font-size of the hole page by just editing the font-size of the `html` element.
+It's also recommended to set the default `font-size` of the `html` element to `1px`.
+This ensures that 1rem = 1px.
+
+__bad__
+
+```
+.box {
+	font-size: 12px;
+	line-height: 16px;
+}
+```
+
+__good__
+
+```
+.box {
+	font-size: 12rem;
+	line-height: 16rem;
+}
+```
+
+
 #### Omit unit specification after “0” values
 
 Zero is zero. :)
@@ -375,7 +400,7 @@ __bad__
 
 ```
 .box {
-	color: #ff009;
+	color: #ff0099;
 }
 ```
 
@@ -492,9 +517,9 @@ Some explanation:
 - __reset.scss__ – global browser reset by [Eric Meyer](http://meyerweb.com/eric/tools/css/reset/)
 - __webfonts.scss__ – use it for `@font-face`-declarations
 - __blocks/__ – all block-component-partials go in here
-- __extends/__ – put your placeholder-extends in here, e.g. `a11y`, `cf`, `hide-text` etc.
-- __mixins/__ – put your mixins in here, e.g. `px-to-rem`, `respond-to` etc.
-- __styles.scss__ – main stylesheet, includes all partials
+- __extends/__ – put your placeholder-extends in here
+- __mixins/__ – put your mixins in here
+- __styles.scss__ – main stylesheet, imports all partials
 - __variables/__ – put your variables in here, e.g. `color`, `typography` etc.
 
 
