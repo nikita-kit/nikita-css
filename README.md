@@ -34,7 +34,7 @@ Blocks and elements may be modified with __modifiers__. For instance the selecte
 - Modifier
 	- are prefixed with `is-` or `has-`, and have to be defined in block or element scope
 	- __good:__ is-selected, is-active, has-items
-	- __bad:__ selected, active, items
+	- __bad:__ x-selected, active, m-items
 
 
 #### Example
