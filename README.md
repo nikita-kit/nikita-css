@@ -47,10 +47,8 @@ File `_menu.scss` in `source/sass/blocks` directory.
 		…
 	}
 
-	.item { /* element: 'item' in b-menu */
-		a { /* element: 'item a' in b-menu */
-			…
-		}
+	.menu-item { /* element: 'item' in b-menu */
+		…
 	}
 }
 ```
