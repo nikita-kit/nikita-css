@@ -28,9 +28,9 @@ Blocks and elements may be modified with __modifiers__. For instance the selecte
 	- __bad:__ menu, sidebar, sitemap, user
 - Elements
 	- have _no prefix_ and can only be defined in block scope
-	- are not prefixed with their block (choose a longer name if it's not expressive enough)
-	- __good:__ item, title, user-avatar (instead of user or avatar)
-	- __bad:__ user-user-avatar, menu-item-a
+	- to avoid conflicts with nested blocks elements should be named unique to their corresponding block. 
+	- __good:__ menu-item, sidebar-title, user-text
+	- __bad:__ item, title, text (instead of user or avatar)
 - Modifier
 	- are prefixed with `is-` or `has-`, and have to be defined in block or element scope
 	- __good:__ is-selected, is-active, has-items
