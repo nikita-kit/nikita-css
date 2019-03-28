@@ -144,6 +144,7 @@ module.exports = {
         "no-duplicate-selectors": true,
         "number-max-precision": 3,
         "selector-no-qualifying-type": true,
-        "value-keyword-case": "lower"
+        "value-keyword-case": "lower",
+        "no-empty-first-line": true
     },
 };
