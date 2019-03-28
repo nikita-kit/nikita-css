@@ -132,5 +132,18 @@ module.exports = {
         "value-list-comma-space-after": "always-single-line",
         "value-list-comma-space-before": "never",
         "value-list-max-empty-lines": 0,
+        
+        "value-no-vendor-prefix": true,
+        "property-no-vendor-prefix": true,
+        "at-rule-no-vendor-prefix": true,
+        "declaration-no-important": true,
+        "color-named": "never",
+        "font-weight-notation": "numeric",
+        "max-nesting-depth": 3,
+        "no-duplicate-at-import-rules": true,
+        "no-duplicate-selectors": true,
+        "number-max-precision": 3,
+        "selector-no-qualifying-type": true,
+        "value-keyword-case": "lower"
     },
 };
