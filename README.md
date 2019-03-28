@@ -879,6 +879,11 @@ __good__
 ```
 
 
+#### Extends vs. Mixins
+
+Sass/SCSS provide two practical ways to reuse code snippets in your CSS: Mixins and Extends. Both have their pros and cons and it needs careful consideration what to choose for each use case. The biggest caveat of extends for example is that they can't be used inside media queries but mixins can. Therefore extends should be used only for self contained rulesets and not snippets.
+
+
 #### Placeholder extends vs. class extends
 
 You have two options to extend code blocks that are reused several times: standard classes and placeholders. The advantage of placeholder extends over classes: they won't be added to the CSS output and remain silent. Very usefull for helper classes e.g. like the `clearfix` which was put directly on the markup in the past.
