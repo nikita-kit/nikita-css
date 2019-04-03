@@ -881,12 +881,12 @@ __good__
 
 #### Extends vs. Mixins
 
-Sass/SCSS provide two practical ways to reuse code snippets in your CSS: Mixins and Extends. Both have their pros and cons and it needs careful consideration what to choose for each use case. The biggest caveat of extends for example is that they can't be used inside media queries but mixins can. Therefore extends should be used only for self contained rulesets and not snippets.
+Sass/SCSS provide two practical ways to reuse code snippets in your CSS: Mixins and Extends. Both have their pros and cons and it needs careful consideration what to choose for each use case. The biggest caveat is that **extends can't be used inside media queries** but mixins can. Therefore extends should be used only for self contained rulesets and not snippets. 
 
 
 #### Placeholder extends vs. class extends
 
-You have two options to extend code blocks that are reused several times: standard classes and placeholders. The advantage of placeholder extends over classes: they won't be added to the CSS output and remain silent. Very usefull for helper classes e.g. like the `clearfix` which was put directly on the markup in the past.
+You have two options to extend code blocks that are reused several times: standard classes and placeholders. The advantage of placeholder extends over classes: they won't be added to the CSS output and remain silent.
 
 __Class extend__
 
@@ -931,73 +931,6 @@ __Placeholder extend__
 	color: #fff;
 }
 ```
-
-
-#### Placeholder extends > Mixins
-
-To reuse SASS snippets repeatedly, you should choose placeholder extends and not mixins. Thus, the CSS output is smaller because selectors are summarized.
-
-__bad__
-
-```
-// Mixin
-@mixin ellipsis() {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-// Usage
-.foo {
-	@include ellipsis();
-}
-
-.bar {
-	@include ellipsis();
-}
-
-// Output
-.foo {
-	overflow: hidden;
-	text-overflow: ellipsis:
-	white-space: nowrap;
-}
-
-.bar {
-	overflow: hidden;
-	text-overflow: ellipsis:
-	white-space: nowrap;
-}
-```
-
-__good__
-
-```
-// Placeholder extend
-%ellipsis {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-// Usage
-.foo {
-	@extend %ellipsis;
-}
-
-.bar {
-	@extend %ellipsis;
-}
-
-// Output
-.foo,
-.bar {
-	overflow: hidden;
-	text-overflow: ellipsis:
-	white-space: nowrap;
-}
-```
-
 
 #### Keep it simple – Part 1
 
