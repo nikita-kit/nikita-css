@@ -13,7 +13,7 @@ If you're interested in our Javascript conding style guide, try [nikita.js](http
 
 ### Methodology
 
-We're using some variation of BEM+SMACSS+optionatedexperienceofcssdevelopmentyears:
+We're using some variation of BEM+SMACSS+opinionatedexperienceofcssdevelopmentyears:
 
 Our site exists of basic __blocks__. Blocks are independent parts of the site (e.g. menu, metanav, login form, sidebar, user detail page). Like explained at [yandex's BEM](http://img-fotki.yandex.ru/get/5008/221798411.0/0_babce_7deef28f_XXL.png).
 The blocks may contain other blocks.
@@ -28,13 +28,13 @@ Blocks and elements may be modified with __modifiers__. For instance the selecte
 	- __bad:__ menu, sidebar, sitemap, user
 - Elements
 	- have _no prefix_ and can only be defined in block scope
-	- are not prefixed with their block (choose a longer name if it's not expressive enough)
-	- __good:__ item, title, user-avatar (instead of user or avatar)
-	- __bad:__ user-user-avatar, menu-item-a
+	- to avoid conflicts with nested blocks elements should be named unique to their corresponding block. 
+	- __good:__ menu-item, sidebar-title, user-text
+	- __bad:__ item, title, text (instead of user or avatar)
 - Modifier
 	- are prefixed with `is-` or `has-`, and have to be defined in block or element scope
 	- __good:__ is-selected, is-active, has-items
-	- __bad:__ selected, active, items
+	- __bad:__ x-selected, active, m-items
 
 
 #### Example
@@ -47,27 +47,14 @@ File `_menu.scss` in `source/sass/blocks` directory.
 		…
 	}
 
-	.item { /* element: 'item' in b-menu */
-		a { /* element: 'item a' in b-menu */
-			…
-		}
+	.menu-item { /* element: 'item' in b-menu */
+		…
 	}
 }
 ```
 
 
 #### Class-Naming
-
-Because you want to know if the block is for page layout or for a single component, we separate page layout blocks from component blocks.
-
-Page Layout Blocks:
-
-- b-page
-- b-page-header
-- b-page-nav
-- b-page-main
-- b-page-aside
-- b-page-footer
 
 Component Blocks:
 
@@ -491,10 +478,10 @@ $ tree
 ├── _reset.scss
 ├── _webfonts.scss
 ├── blocks
-│   ├── _page-aside.scss
-│   ├── _page-footer.scss
-│   ├── _page-header.scss
-│   ├── _page-nav.scss
+│   ├── _aside.scss
+│   ├── _footer.scss
+│   ├── _header.scss
+│   ├── _nav.scss
 │   └── …
 ├── extends
 │   ├── _buttons.scss
@@ -678,16 +665,16 @@ Maximum Nesting: three levels deep!
 
 Where to define the styles for blocks in blocks? Answer: always in your block which gets the styling. Otherwise you have to maintain more than one file which is error-prone.
 
-Example: Assumed that you have a different styling for the user-avatar-block, based on whether it's in your page-header-block or in your page-footer-block.
+Example: Assumed that you have a different styling for the user-avatar-block, based on whether it's in your header-block or in your footer-block.
 
 ```
-<div class="b-page-header">
+<div class="b-header">
 	<div class="b-user-avatar">
 		…
 	</div>
 </div>
 
-<div class="b-page-footer">
+<div class="b-footer">
 	<div class="b-user-avatar">
 		…
 	</div>
@@ -697,8 +684,8 @@ Example: Assumed that you have a different styling for the user-avatar-block, ba
 __bad__
 
 ```
-// _page-header.scss
-.b-page-header {
+// _header.scss
+.b-header {
 	.b-user-avatar {
 		float: right;
 		width: 100px;
@@ -706,8 +693,8 @@ __bad__
 	}
 }
 
-// _page-footer.scss
-.b-page-footer {
+// _footer.scss
+.b-footer {
 	.b-user-avatar {
 		float: left;
 		width: 50px;
@@ -728,13 +715,13 @@ __good__
 .b-user-avatar {
 	border-radius: 50%;
 	
-	.b-page-header & {
+	.b-header & {
 		float: right;
 		width: 100px;
 		height: 100px;
 	}
 	
-	.b-page-footer & {
+	.b-footer & {
 		float: left;
 		width: 50px;
 		height: 50px;
