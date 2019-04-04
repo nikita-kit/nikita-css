@@ -145,6 +145,9 @@ module.exports = {
         "number-max-precision": 3,
         "selector-no-qualifying-type": true,
         "value-keyword-case": "lower",
-        "no-empty-first-line": true
+        "no-empty-first-line": true,
+        'declaration-block-semicolon-newline-before': 'never-multi-line',
+        'linebreaks': 'unix',
+        'max-line-length': 160
     },
 };
