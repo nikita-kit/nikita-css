@@ -147,6 +147,6 @@ module.exports = {
         "no-empty-first-line": true,
         "declaration-block-semicolon-newline-before": "never-multi-line",
         "linebreaks": "unix",
-        "max-line-length": 160
+        "max-line-length": [160, {"ignore": ["comments"]}],
     },
 };
