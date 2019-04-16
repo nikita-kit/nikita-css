@@ -91,7 +91,7 @@ Add comments at the line where they belong to or above the ruleset that you want
 	
 	/* Rule specific comment */
 	.csspositionsticky & {
-		position: sticky; /* on anything except top aligned elements this is buggy in Chrome <37 and iOS 7+ */
+		position: sticky; /* On anything except top aligned elements this is buggy in Chrome <37 and iOS 7+ */
 	}
 }
 ```
