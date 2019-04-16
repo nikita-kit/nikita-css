@@ -87,11 +87,11 @@ Add comments at the line where they belong to or above the ruleset that you want
 /* Rule specific comment */
 .box {
 	position: fixed;
-	transform: translate3d(0, 0, 0); /* Hardware acceleration hack */
+	transform: translate3d(0, 0, 0); /* Enable hardware acceleration */
 	
 	/* Rule specific comment */
 	.csspositionsticky & {
-		position: sticky; /* on anything but top aligned elements is buggy in Chrome <37 and iOS 7+ */
+		position: sticky; /* on anything except top aligned elements this is buggy in Chrome <37 and iOS 7+ */
 	}
 }
 ```
