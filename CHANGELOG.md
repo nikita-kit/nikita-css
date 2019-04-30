@@ -4,6 +4,7 @@
 * updated guidance about mixins vs. extends
 * updated guidance about comments
 * updated guidance about element naming convention
+* updated guidance about rem units
 * added guidance about Foundation CSS framework
 * updated all dependencies
 * added some new rules:
