@@ -4,6 +4,7 @@
 * updated guidance about mixins vs. extends
 * updated guidance about comments
 * updated guidance about element naming convention
+* added guidance about Foundation CSS framework
 * updated all dependencies
 * added some new rules:
   * `value-no-vendor-prefix": true`
@@ -21,6 +22,7 @@
   * `declaration-block-semicolon-newline-before": never-multi-line`
   * `linebreaks": unix`
   * `max-line-length": 160`
+* added `touch-action` to order declaration
 
 # 2.0.0 (2019/02/06)
 

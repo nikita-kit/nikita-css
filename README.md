@@ -11,6 +11,14 @@ If you're interested in our Javascript conding style guide, try [nikita.js](http
 
 ## Contents
 
+  1. [Methodology](#methodology)
+  1. [CSS Framework](#css-framework)
+  1. [CSS Coding Style](#css-coding-style)
+  1. [CSS Coding Guidelines](#css-coding-guidelines)
+  1. [Questions](#questions)
+  1. [License](#license)
+
+
 ### Methodology
 
 We're using some variation of BEM+SMACSS+opinionatedexperienceofcssdevelopmentyears:
@@ -82,6 +90,14 @@ Add comments at the line where they belong to or above the ruleset that you want
 	}
 }
 ```
+
+### CSS Framework
+
+We use Foundation as (S)CSS framework.
+In our default setup only the settings and mixins are loaded.
+Feel free to activate more Foundation features by changing `src/scss/foundation.scss` and modify settings at `src/scss/variables/_foundation-settings.scss`.
+We strongly recommend to use [Foundation Grid](https://foundation.zurb.com/sites/docs/xy-grid.html#importing) and [Foundation Breakpoints](https://foundation.zurb.com/sites/docs/media-queries.html#sass) mixins if needed.
+Please take a look at [Foundation Docs](https://foundation.zurb.com/sites/docs/) for more information.
 
 
 ### CSS Coding Style
@@ -986,10 +1002,6 @@ __simple__
 	font-weight: 700;
 }
 ```
-
-## Foundation
-
-We use foundation as scss framework. In our default settings only the breakpoints are activated (https://foundation.zurb.com/sites/docs/media-queries.html#sass). If you need additional features please take a look if foundation provides it (https://foundation.zurb.com/sites/docs/) and activate them by changing src/scss/foundation.scss.
 
 
 ## Questions?
