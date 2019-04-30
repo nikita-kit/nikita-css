@@ -319,8 +319,8 @@ __good__
 #### prefer rem units whenever possible
 
 Then it's very easy to modify the font-size of the hole page by just editing the font-size of the `html` element.
-It's also recommended to set the default `font-size` of the `html` element to `1px`.
-This ensures that 1rem = 1px.
+It's also recommended to set the default `font-size` of the `html` element to `62.5%`.
+This ensures that 1rem = 10px and that the accessibility feature of browsers to enlarge text is still working.
 
 __bad__
 
@@ -335,8 +335,8 @@ __good__
 
 ```
 .box {
-	font-size: 12rem;
-	line-height: 16rem;
+	font-size: 1.2rem;
+	line-height: 1.6rem;
 }
 ```
 
