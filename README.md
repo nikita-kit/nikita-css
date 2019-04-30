@@ -68,21 +68,17 @@ Component Blocks:
 
 #### Commenting
 
-Start with a small description of the rule set, then number tiny details that are worth an explanation. The numbers are matching with the numbered comments at the end of the CSS rules, e.g. `/* [1] */`.
+Add comments at the line where they belong to or above the ruleset that you want to comment.
 
 ```
-/**
- * Purpose of the selector or the rule set
- * 1. Hardware acceleration hack
- * 2. position: sticky; on anything but top aligned elements is buggy in Chrome <37 and iOS 7+
- */
- 
+/* Rule specific comment */
 .box {
 	position: fixed;
-	transform: translate3d(0, 0, 0); /* [1] */
+	transform: translate3d(0, 0, 0); /* Enable hardware acceleration */
 	
+	/* Rule specific comment */
 	.csspositionsticky & {
-		position: sticky; /* [2] */
+		position: sticky; /* On anything except top aligned elements this is buggy in Chrome <37 and iOS 7+ */
 	}
 }
 ```
