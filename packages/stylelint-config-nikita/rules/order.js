@@ -164,6 +164,7 @@ module.exports = {
             "resize",
             "cursor",
             "pointer-events",
+            "touch-action",
             "tap-highlight-color",
             "quotes",
             "counter-increment",
