@@ -987,6 +987,10 @@ __simple__
 }
 ```
 
+## Foundation
+
+We use foundation as scss framework. In our default settings only the breakpoints are activated (https://foundation.zurb.com/sites/docs/media-queries.html#sass). If you need additional features please take a look if foundation provides it (https://foundation.zurb.com/sites/docs/) and activate them by changing src/scss/foundation.scss.
+
 
 ## Questions?
 
