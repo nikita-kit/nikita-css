@@ -1,3 +1,7 @@
+# dev
+
+* drop node 6 support
+
 # 3.0.0 (2019/04/30)
 
 * removed distinction between page-blocks and blocks to reduce confusion

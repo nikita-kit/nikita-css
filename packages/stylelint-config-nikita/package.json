@@ -30,15 +30,15 @@
         "url": "https://github.com/nikita-kit/nikita-css"
     },
     "devDependencies": {
-        "stylelint": "^10.0.1",
+        "stylelint": "^10.1.0",
         "stylelint-find-new-rules": "^1.0.2",
-        "stylelint-order": "^3.0.0"
+        "stylelint-order": "^3.1.0"
     },
     "peerDependencies": {
-        "stylelint": "^10.0.1",
-        "stylelint-order": "^2.2.1 || ^3.0.0"
+        "stylelint": "^10.1.0",
+        "stylelint-order": "^3.1.0"
     },
     "engines": {
-        "node": ">= 6"
+        "node": ">= 8.10"
     }
 }
