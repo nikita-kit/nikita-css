@@ -1,6 +1,8 @@
 # dev
 
 * drop node 6 support
+* updated all dependencies
+* removed IE conditional advice
 
 # 3.0.0 (2019/04/30)
 

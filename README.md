@@ -458,24 +458,6 @@ Self-explanatory I hope. :)
 It may be ok to use it on helper classes though.
 
 
-#### Avoid using conditional stylesheets
-
-Better wrap your html-element in conditional comments and then use the html-class, e.g. `.lt-ie9` to style directly in your component-block.
-
-__bad__
-
-```
-<!--[if IE 9]><link href="ie9.css" rel="stylesheet" /><![endif]-->
-```
-
-__good__
-
-```
-<!--[if IE 9]> <html class="no-js lt-ie10 ie9" lang="de"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="de"> <!--<![endif]-->
-```
-
-
 ### SASS structure
 
 The main SCSS-file is `styles.scss`. It imports all partials. `variables`, `mixins`, `extends`, `icons` and `blocks` will be imported with a globbing-pattern.
