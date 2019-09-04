@@ -1,5 +1,15 @@
 .b-gallery {
-    @include media-breakpoint-down(sm) {
+
+    $var: 1;
+
+    --property: 2;
+
+    @include svg-background(facebook);
+
+
+    padding: 10px;
+
+    @include breakpoint(small) {
         .slider {
             margin: 0 -15px 20px;
             box-shadow: none;
@@ -34,6 +44,13 @@
             width: 30px;
             height: 30px;
             background-size: contain;
+
+            @include breakpoint(small) {
+                .slider {
+                    margin: 0 -15px 20px;
+                    box-shadow: none;
+                }
+            }
         }
     }
 
