@@ -1,6 +1,6 @@
 # dev
 
-* drop node 6 support
+* dropped node 6 support
 * updated all dependencies
 * removed IE conditional advice
 * changed order within declaration blocks: `@inlcude`-rules with a child block gets moved to bottom
