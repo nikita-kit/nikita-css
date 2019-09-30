@@ -480,7 +480,7 @@ __good__
 #### Don't use !important
 
 Self-explanatory I hope. :)
-It may be ok to use it on helper classes though.
+It may be ok to use it on utility classes though.
 
 
 ### SASS structure
@@ -495,6 +495,7 @@ $ tree
 .
 ├── _basics.scss
 ├── _reset.scss
+├── _utilities.scss
 ├── _webfonts.scss
 ├── blocks
 │   ├── _aside.scss
@@ -522,6 +523,7 @@ Some explanation:
 - __basics.scss__ – basic styles, some normalizing
 - __reset.scss__ – global browser reset by [Eric Meyer](http://meyerweb.com/eric/tools/css/reset/)
 - __webfonts.scss__ – use it for `@font-face`-declarations
+- __utilites.scss__ – utility classes for tiny recurring style declarations that are needed in several places
 - __blocks/__ – all block-component-partials go in here
 - __extends/__ – put your placeholder-extends in here
 - __mixins/__ – put your mixins in here
