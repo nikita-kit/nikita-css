@@ -61,29 +61,25 @@ File `_menu.scss` in `src/scss/blocks` directory.
 ```
 #### Utility classes
 
-Additionally you can make use of utility classes for recurring style adjustments that are to small for being a block. These classes need to be prefixed with `u-` and should reside in `src/scss/utilities.scss`. Its not intended to build everything with these utility classes but there are situations where you only need to make some small adjustment with just 1 – 3 lines that doesn't require the whole BEM structure to be used. That's a good point to use utility classes. To make this more clear the following examples may help you get the idea.
+Additionally you can make use of utility classes for recurring style adjustments that are to small for being a block. These classes need to be prefixed with `u-` and should reside in `src/scss/utilities.scss`.
+
+Please use these classes sparingly. Its not intended to build everything with these utility classes and create your own framework with it. Our main approach is still to use block, elements and modifiers but there are situations where you only need to make some small adjustment with just a few lines that doesn't require the whole BEM structure to be used. That's a good point to use utility classes. To make this more clear the following examples may help you get the idea.
 
 ##### Example
 
 ```
-.u-block {
-    display: block;
+.u-reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.u-float-left {
-    float: left;
+.u-visuallyhidden {
+    @include a11y-hide;
 }
 
-.u-float-right {
-    float: right;
-}
-
-.u-text-center {
-    text-align: center;
-}
-
-.u-text-right {
-    text-align: center;
+.u-hide-text {
+    @include hide-text;
 }
 ```
 
