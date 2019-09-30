@@ -44,10 +44,9 @@ Blocks and elements may be modified with __modifiers__. For instance the selecte
 	- __good:__ is-selected, is-active, has-items
 	- __bad:__ x-selected, active, m-items
 
-
 #### Example
 
-File `_menu.scss` in `source/sass/blocks` directory.
+File `_menu.scss` in `src/scss/blocks` directory.
 
 ```
 .b-menu { /* block: 'b-menu' */
@@ -60,7 +59,33 @@ File `_menu.scss` in `source/sass/blocks` directory.
 	}
 }
 ```
+#### Utility classes
 
+Additionally you can make use of utility classes for recurring style adjustments that are to small for being a block. These classes need to be prefixed with `u-` and should reside in `src/scss/utilities.scss`. Its not intended to build everything with these utility classes but there are situations where you only need to make some small adjustment with just 1 – 3 lines that doesn't require the whole BEM structure to be used. That's a good point to use utility classes. To make this more clear the following examples may help you get the idea.
+
+##### Example
+
+```
+.u-block {
+    display: block;
+}
+
+.u-float-left {
+    float: left;
+}
+
+.u-float-right {
+    float: right;
+}
+
+.u-text-center {
+    text-align: center;
+}
+
+.u-text-right {
+    text-align: center;
+}
+```
 
 #### Class-Naming
 
