@@ -44,10 +44,9 @@ Blocks and elements may be modified with __modifiers__. For instance the selecte
 	- __good:__ is-selected, is-active, has-items
 	- __bad:__ x-selected, active, m-items
 
-
 #### Example
 
-File `_menu.scss` in `source/sass/blocks` directory.
+File `_menu.scss` in `src/scss/blocks` directory.
 
 ```
 .b-menu { /* block: 'b-menu' */
@@ -60,7 +59,29 @@ File `_menu.scss` in `source/sass/blocks` directory.
 	}
 }
 ```
+#### Utility classes
 
+Additionally you can make use of utility classes for recurring style adjustments that are to small for being a block. These classes need to be prefixed with `u-` and should reside in `src/scss/utilities.scss`.
+
+Please use these classes sparingly. Its not intended to build everything with these utility classes and create your own framework with it. Our main approach is still to use block, elements and modifiers but there are situations where you only need to make some small adjustment with just a few lines that doesn't require the whole BEM structure to be used. That's a good point to use utility classes. To make this more clear the following examples may help you get the idea.
+
+##### Example
+
+```
+.u-reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.u-visuallyhidden {
+    @include a11y-hide;
+}
+
+.u-hide-text {
+    @include hide-text;
+}
+```
 
 #### Class-Naming
 
@@ -455,7 +476,7 @@ __good__
 #### Don't use !important
 
 Self-explanatory I hope. :)
-It may be ok to use it on helper classes though.
+It may be ok to use it on utility classes though.
 
 
 ### SASS structure
@@ -470,6 +491,7 @@ $ tree
 .
 ├── _basics.scss
 ├── _reset.scss
+├── _utilities.scss
 ├── _webfonts.scss
 ├── blocks
 │   ├── _aside.scss
@@ -497,6 +519,7 @@ Some explanation:
 - __basics.scss__ – basic styles, some normalizing
 - __reset.scss__ – global browser reset by [Eric Meyer](http://meyerweb.com/eric/tools/css/reset/)
 - __webfonts.scss__ – use it for `@font-face`-declarations
+- __utilites.scss__ – utility classes for tiny recurring style declarations that are needed in several places
 - __blocks/__ – all block-component-partials go in here
 - __extends/__ – put your placeholder-extends in here
 - __mixins/__ – put your mixins in here
