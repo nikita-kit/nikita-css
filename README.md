@@ -507,7 +507,6 @@ $ tree
 │   └── …
 ├── styles.scss
 └── variables
-    ├── _breakpoints.scss
     ├── _color.scss
     ├── _timing.scss
     ├── _typography.scss
@@ -546,12 +545,10 @@ __List media queries first__
 
 ```
 .b-foo {
-	
 	// Media Queries
-	@include respond-to(desktop) {
+	@include breakpoint(large) {
 		padding: 10px;
 	}
-	
 }
 ```
 
@@ -559,15 +556,13 @@ __List global styles beginning with @extend second (separated by a blank line)__
 
 ```
 .b-foo {
-	
-	// Media Queries
-	@include respond-to(desktop) {
-		padding: 10px;
-	}
-	
 	// Global Styles
 	@extend %module;
-	
+
+	// Media Queries
+	@include breakpoint(large) {
+		padding: 10px;
+	}
 }
 ```
 
@@ -575,16 +570,14 @@ __List @include third__
 
 ```
 .b-foo {
-	
-	// Media Queries
-	@include respond-to(desktop) {
-		padding: 10px;
-	}
-	
 	// Global Styles
 	@extend %module;
 	@include centering(horiz);
 	
+	// Media Queries
+	@include breakpoint(large) {
+		padding: 10px;
+	}
 }
 ```
 
@@ -592,17 +585,15 @@ __List regular styles next__
 
 ```
 .b-foo {
-	
-	// Media Queries
-	@include respond-to(desktop) {
-		padding: 10px;
-	}
-	
 	// Global Styles
 	@extend %module;
 	@include centering(horiz);
 	color: #000;
 	
+	// Media Queries
+	@include breakpoint(large) {
+		padding: 10px;
+	}
 }
 ```
 
@@ -610,12 +601,6 @@ __List pseudo-class/elements nesting with & (separated by a blank line)__
 
 ```
 .b-foo {
-	
-	// Media Queries
-	@include respond-to(desktop) {
-		padding: 10px;
-	}
-	
 	// Global Styles
 	@extend %module;
 	@include centering(horiz);
@@ -629,6 +614,10 @@ __List pseudo-class/elements nesting with & (separated by a blank line)__
 		content: "";
 	}
 	
+	// Media Queries
+	@include breakpoint(large) {
+		padding: 10px;
+	}
 }
 ```
 
@@ -636,9 +625,8 @@ __List nested selectors last (separated by a blank line)__
 
 ```
 .b-foo {
-	
 	// Media Queries
-	@include respond-to(desktop) {
+	@include breakpoint(large) {
 		padding: 10px;
 	}
 	
@@ -658,7 +646,6 @@ __List nested selectors last (separated by a blank line)__
 	> .bar {
 		background-color: #f90;
 	}
-	
 }
 ```
 
