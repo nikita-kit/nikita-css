@@ -1,5 +1,8 @@
 # dev
 
+* dropped node 8 support
+* updated all dependencies
+
 # 4.0.0 (2019/09/16)
 
 * dropped node 6 support
