@@ -1,4 +1,4 @@
-# dev
+# 5.0.0 (2020/09/26)
 
 * dropped node 8 support
 * updated all dependencies
